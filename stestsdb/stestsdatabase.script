@@ -1,45 +1,4 @@
 CREATE SCHEMA PUBLIC AUTHORIZATION DBA
-CREATE SEQUENCE CONFERENCIA_SEQ AS INTEGER START WITH 15 
-CREATE SEQUENCE PALESTRA_SEQ AS INTEGER START WITH 23 
-CREATE SEQUENCE PALESTRANTE_SEQ AS INTEGER START WITH 17 
-CREATE MEMORY TABLE CONFERENCIA(ID_CONFERENCIA INTEGER NOT NULL PRIMARY KEY,NOME VARCHAR(200) NOT NULL,DESCRICAO VARCHAR(500) NOT NULL,DATA_INICIO DATE NOT NULL,DATA_FIM DATE NOT NULL,ENDERECO VARCHAR(1000),CEP VARCHAR(9))
-CREATE MEMORY TABLE PALESTRANTE(ID_PALESTRANTE INTEGER NOT NULL PRIMARY KEY,NOME VARCHAR(500) NOT NULL,RESUMO VARCHAR(2000))
-CREATE MEMORY TABLE PALESTRA(ID_PALESTRA INTEGER NOT NULL PRIMARY KEY,NOME VARCHAR(200) NOT NULL,RESUMO VARCHAR(2000),DATA TIMESTAMP NOT NULL,ID_CONFERENCIA INTEGER NOT NULL,ID_PALESTRANTE INTEGER NOT NULL,CONSTRAINT FK_CONFERENCIA FOREIGN KEY(ID_CONFERENCIA) REFERENCES CONFERENCIA(ID_CONFERENCIA) ON DELETE CASCADE,CONSTRAINT FK_PALESTRANTE FOREIGN KEY(ID_PALESTRANTE) REFERENCES PALESTRANTE(ID_PALESTRANTE) ON DELETE CASCADE)
 CREATE USER SA PASSWORD ""
 GRANT DBA TO SA
 SET WRITE_DELAY 10
-SET SCHEMA PUBLIC
-INSERT INTO CONFERENCIA VALUES(2,'DEVCAMP 2016','O DevCamp \u00e9 a maior Confer\u00eancia de Desenvolvimento de Software do interior de S\u00e3o Paulo. J\u00e1 foram realizadas tr\u00eas edi\u00e7\u00f5es do evento (2013, 2014 e 2015) com presen\u00e7a de de mais de 1400 participantes de todo o Brasil.','2016-05-13','2016-05-13','Expo Dom Pedro - Avenida Guilherme Campos, 500 - Jardim Santa Genebra','13087-901')
-INSERT INTO CONFERENCIA VALUES(3,'THE DEVELOPER''S CONFERENCE 2015','Ser\u00e3o 3 dias de evento, num total de 24 trilhas com assuntos diferentes e alguns workshops a serem definidos, al\u00e9m das trilhas Stadium que s\u00e3o uma sele\u00e7\u00e3o de palestras das trilhas do dia e acontece num audit\u00f3rio.','2015-09-24','2015-09-26','UniRitter - Campus Porto Alegre, Rua Orfanotr\u00f3fio, 555 - Alto Teres\u00f3polis','90840-440')
-INSERT INTO CONFERENCIA VALUES(9,'Confer\u00eancia de Teste','sksdkslslk','2016-12-01','2016-12-05',NULL,NULL)
-INSERT INTO CONFERENCIA VALUES(10,'Confer\u00eancia de Teste 02','SLDKSDKSLK','2016-01-01','2016-02-01',NULL,NULL)
-INSERT INTO CONFERENCIA VALUES(11,'Confer\u00eancia de Teste XXXX','sassddklxmx,mcxc saalskal qpwoqpwo','2016-02-21','2016-02-23',NULL,NULL)
-INSERT INTO CONFERENCIA VALUES(12,'RubyConf','asa\u00e7la\u00e7la\u00e7lsal\u00e7 oqpow','2016-11-11','2016-11-14',NULL,NULL)
-INSERT INTO CONFERENCIA VALUES(13,'skalskaslkalaaks','skslkaalaslksk','2015-12-11','2015-12-12',NULL,NULL)
-INSERT INTO CONFERENCIA VALUES(14,'Java Conf','askalsaskl','2015-12-11','2015-12-12',NULL,NULL)
-INSERT INTO PALESTRANTE VALUES(1,'Alexandre Magno','Desenvolvedor web h\u00e1 mais de 7 anos, Alexandre \u00e9 atualmente engenheiro de software na Globo.com e \u00e9 contribuidor ativo na comunidade open source, incluindo o Twitter Bootstrap. Especialista em front-end, j\u00e1 foi evangelista jQuery e possui experi\u00eancia ampla em linguagens server-side como Ruby, Python e PHP. Atualmente tem seu foco em web mobile. \u00c9 autor do livro Mobile First Bootstrap (Packt) e exerce grande influ\u00eancia nas solu\u00e7\u00f5es mobile adotadas pela Globo.com.')
-INSERT INTO PALESTRANTE VALUES(2,'Andre Midea','Andr\u00e9 Midea \u00e9 desenvolvedor de software h\u00e1 7 anos. Atua na Bluesoft como DevOps, no desenvolvimento da arquitetura do seu produto principal, no automatiza\u00e7\u00e3o e no desenvolvimento de ferramentas internas. Trabalha diariamente com AWS, testando novos servi\u00e7os e buscando formas de otimizar a infraestrutura.')
-INSERT INTO PALESTRANTE VALUES(3,'Bruno Souza','Bruno Souza \u00e9 Presidente do SouJava. Conhecido como o "JavaMan", \u00e9 evangelista de Java e open source. Desenvolvedor Java desde os prim\u00f3rdios da tecnologia, participou de alguns dos maiores projetos Java do pa\u00eds. Bruno \u00e9 Diretor da Open Source Initiative (OSI), onde discute a evolu\u00e7\u00e3o do movimento open source. \u00c9 tamb\u00e9m presidente nacional da Campus Party, Consultor S\u00eanior da Summa Technologies e fundador da startup ToolsCloud.')
-INSERT INTO PALESTRANTE VALUES(4,'Fabiane Nardon','Fabiane \u00e9 uma cientista da computa\u00e7\u00e3o com PhD em Engenharia El\u00e9trica que adora criar aplica\u00e7\u00f5es disruptivas. Depois de ganhar um Duke')
-INSERT INTO PALESTRANTE VALUES(5,'Roberto Marin',NULL)
-INSERT INTO PALESTRANTE VALUES(6,'Diego Eis',NULL)
-INSERT INTO PALESTRANTE VALUES(7,'Victor Fonseca',NULL)
-INSERT INTO PALESTRANTE VALUES(8,'Matheus Haddad',NULL)
-INSERT INTO PALESTRANTE VALUES(9,'Everton Gago',NULL)
-INSERT INTO PALESTRANTE VALUES(10,'Felipe Plets','Felipe Plets \u00e9 mestrando em Computa\u00e7\u00e3o Aplicada pela UNISINOS e desenvolve software desde 2000. Poliglota das linguagens de programa\u00e7\u00e3o, viciado em JavaScript, entusiasta de hardware aberto e com esp\u00edrito empreendedor, tem uma aut\u00eantica mente inquieta. \u00c9 praticante e coach de metodologias \u00e1geis e design thinking. Co-fundador da menvia.com, uma startup que desenvolve solu\u00e7\u00f5es m\u00e1gicas utilizando UX e IoT.')
-INSERT INTO PALESTRANTE VALUES(11,'Frederico Moreira','DJ por Hobby e atua como QA Engineer na MinuTrade onde trabalha com testes num time \u00e1gil, entusiasta testes automatizados e acredita que todo(a) tester deve ser skills t\u00e9cnicas. Graduado de Sistemas de Informa\u00e7\u00e3o na UNA e tamb\u00e9m p\u00f3s graduado em Engenharia de Software centrada em m\u00e9todos \u00e1geis pela UNA.')
-INSERT INTO PALESTRANTE VALUES(12,'Tiago Chilanti','10 anos de experi\u00eancia em projetos de software e desenvolvimento de produtos digitais. Certificado Scrum Master e Scrum Product Owner. Trabalhou em grandes empresas como HP e Dell. Morou na Alemanha e trabalhou na empresa MECOMO. Fundou e foi CEO da filial da empresa MECOMO DO BRASIL. Largou tudo pra iniciar a Start Up Quero Frete.')
-INSERT INTO PALESTRANTE VALUES(16,'Andr\u00e9 Thiago Souza da Silva','saasasasas')
-INSERT INTO PALESTRA VALUES(7,'UX e Front end',NULL,'2016-05-03 11:00:00.000000000',2,6)
-INSERT INTO PALESTRA VALUES(8,'Dev e Ops finalmente em PAAS',NULL,'2016-05-03 13:30:00.000000000',2,7)
-INSERT INTO PALESTRA VALUES(9,'Como tomar decis\u00f5es em equipe',NULL,'2016-05-03 14:30:00.000000000',2,8)
-INSERT INTO PALESTRA VALUES(10,'Redes Neurais Artificiais',NULL,'2016-05-03 15:30:00.000000000',2,9)
-INSERT INTO PALESTRA VALUES(11,'Desmistificando Beacons','O principal objetivo \u00e9 compartilhar 3 anos de experi\u00eancias que tive com implementa\u00e7\u00f5es utilizando Beacons, falar sobre o desenvolvimento no iOS e no Android, principais diferen\u00e7as e desafios. Explicar os diferentes padr\u00f5es existentes: AltBeacon, iBeacon, Eddystone e quais as implica\u00e7\u00f5es de utilizar um ou outro. O fechamento ser\u00e1 dado com casos de uso reais e imagin\u00e1rios para a aplica\u00e7\u00e3o, com uma boa dose de intera\u00e7\u00e3o com a plat\u00e9ia.','2015-09-24 10:00:00.000000000',3,10)
-INSERT INTO PALESTRA VALUES(12,'Novidades do iOS9','A palestra abordar\u00e1 t\u00f3picos t\u00e9cnicos relacionados a novas APIs dispon\u00edveis para desenvolvimento em iOS9. Passaremos pelas novidades de multitasking, storyboards, stack views, dentre outros. Tamb\u00e9m cobriremos um pouco de watchOS2, e como integrar os dispositivos para criar uma experi\u00eancia inovadora para o usu\u00e1rio.','2015-09-24 15:00:00.000000000',3,10)
-INSERT INTO PALESTRA VALUES(13,'Agile Testing, Vamos Quebrar Esse Paradigma?','Neste case, irei mostrar como quebrei este paradigma! Por onde eu comecei, o que eu estudei, as dificuldades de mudar o mind-set, os problemas encontrados no dia a dia de um time \u00e1gil para um tester em transi\u00e7\u00e3o e saindo da zona de conforto.','2015-09-25 10:00:00.000000000',3,11)
-INSERT INTO PALESTRA VALUES(14,'De 0 a 10.000 usu\u00e1rios em 3 meses','Encontre um problema que mere\u00e7a ser resolvido. Entenda seu usu\u00e1rio, como ele pensa, se coloque no seu lugar. Desenvolva um MVP r\u00e1pido mas com qualidade. Cause impacto no lan\u00e7amento e encontre o melhor canal. T\u00e9cnicas de divulga\u00e7\u00e3o no facebook. ASO (App Store Optimiztion). Inbound Sales + Marketing Digital. E agora? De 10.000 a 100.000?','2015-09-26 09:00:00.000000000',3,12)
-INSERT INTO PALESTRA VALUES(15,'Palestra Nova','Resumo da Palestra Nova','2015-11-18 11:20:00.000000000',3,11)
-INSERT INTO PALESTRA VALUES(16,'Palestra de Teste','Teste','2015-12-15 12:00:00.000000000',3,11)
-INSERT INTO PALESTRA VALUES(17,'Mais uma palestra','Mais uma palestra de teste.','2015-11-23 09:00:00.000000000',3,6)
-INSERT INTO PALESTRA VALUES(18,'Palestra Sobre Testes','testando..','2016-04-21 12:00:00.000000000',3,7)
-INSERT INTO PALESTRA VALUES(19,'Palestra aaaa','Vamos l\u00e1 que vai funcionar agora','2017-05-21 12:30:00.000000000',2,5)
