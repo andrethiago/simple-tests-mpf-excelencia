@@ -1,5 +1,8 @@
 package br.mp.mpf.simpletests.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,29 +10,36 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "HISTORIA")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_HISTORIA", allocationSize = 1)
-public class Historia {
+@Table(name = "EXECUCAO_TESTE")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_EXECUCAO_TESTE", allocationSize = 1)
+public class ExecucaoTeste {
 
     @Id
-    @Column(name = "ID_HISTORIA", nullable = false, unique = true)
+    @Column(name = "ID_EXECUCAO_TESTE", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     private Long id;
 
     @Column(name = "NOME", nullable = false, length = 500)
     private String nome;
 
-    @Column(name = "DESCRICAO", nullable = false, length = 5000)
-    private String descricao;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_RELEASE", nullable = false)
     private Release release;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "SUITE_DE_TESTE_EXECUCAO", joinColumns = {
+	    @JoinColumn(name = "ID_EXECUCAO_TESTE") }, inverseJoinColumns = { @JoinColumn(name = "ID_SUITE_DE_TESTE") })
+    private Set<SuiteDeTeste> suites;
+
+    @OneToMany(mappedBy = "execucao")
+    private Set<ItemExecucaoTeste> itensExecucao;
 
     public Long getId() {
 	return id;
@@ -47,12 +57,14 @@ public class Historia {
 	this.nome = nome;
     }
 
-    public String getDescricao() {
-	return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-	this.descricao = descricao;
+    public Boolean getPassou() {
+	boolean passou = true;
+	for (ItemExecucaoTeste itemExecucao : itensExecucao) {
+	    if (itemExecucao.falhou() || itemExecucao.naoExecutado()) {
+		return false;
+	    }
+	}
+	return passou;
     }
 
     public Release getRelease() {
@@ -63,10 +75,20 @@ public class Historia {
 	this.release = release;
     }
 
-    @Override
-    public String toString() {
-	return "Historia [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
-		+ (descricao != null ? "descricao=" + descricao : "") + "]";
+    public Set<SuiteDeTeste> getSuites() {
+	return suites;
+    }
+
+    public void setSuites(Set<SuiteDeTeste> suites) {
+	this.suites = suites;
+    }
+
+    public Set<ItemExecucaoTeste> getItensExecucao() {
+	return itensExecucao;
+    }
+
+    public void setItensExecucao(Set<ItemExecucaoTeste> itensExecucao) {
+	this.itensExecucao = itensExecucao;
     }
 
     @Override
@@ -88,7 +110,7 @@ public class Historia {
 	if (getClass() != obj.getClass()) {
 	    return false;
 	}
-	Historia other = (Historia) obj;
+	ExecucaoTeste other = (ExecucaoTeste) obj;
 	if (id == null) {
 	    if (other.id != null) {
 		return false;
@@ -97,6 +119,12 @@ public class Historia {
 	    return false;
 	}
 	return true;
+    }
+
+    @Override
+    public String toString() {
+	return "ExecucaoTeste [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
+		+ ("passou=" + getPassou() + ", ") + (release != null ? "release=" + release : "") + "]";
     }
 
 }

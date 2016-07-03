@@ -1,6 +1,6 @@
 package br.mp.mpf.simpletests.model;
 
-import java.util.Set;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,28 +10,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "SUITE_DE_TESTE")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_SUITE_DE_TESTE", allocationSize = 1)
-public class SuiteDeTeste {
+@Table(name = "RELEASE")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_RELEASE", allocationSize = 1)
+public class Release {
 
     @Id
-    @Column(name = "ID_SUITE_DE_TESTE", nullable = false, unique = true)
+    @Column(name = "ID_RELEASE", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     private Long id;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "CASO_DE_TESTE_SUITE_DE_TESTE", joinColumns = {
-	    @JoinColumn(name = "ID_SUITE_DE_TESTE") }, inverseJoinColumns = { @JoinColumn(name = "ID_CASO_DE_TESTE") })
-    private Set<CasoDeTeste> casos;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "ID_PROJETO", nullable = false)
+    private Projeto projeto;
 
     @Column(name = "NOME", nullable = false, length = 500)
-    private String nome;
+    private String nome; // ex: RELEASE 01, SPRINT 02
+
+    @Column(name = "DATA_INICIAL", nullable = false)
+    private Date dataInicial;
+
+    @Column(name = "DATA_FINAL", nullable = false)
+    private Date dataFinal;
 
     @Column(name = "DESCRICAO", nullable = true, length = 4000)
     private String descricao;
@@ -44,12 +48,12 @@ public class SuiteDeTeste {
 	this.id = id;
     }
 
-    public Set<CasoDeTeste> getCasos() {
-	return casos;
+    public Projeto getProjeto() {
+	return projeto;
     }
 
-    public void setCasos(Set<CasoDeTeste> casos) {
-	this.casos = casos;
+    public void setProjeto(Projeto projeto) {
+	this.projeto = projeto;
     }
 
     public String getNome() {
@@ -58,6 +62,22 @@ public class SuiteDeTeste {
 
     public void setNome(String nome) {
 	this.nome = nome;
+    }
+
+    public Date getDataInicial() {
+	return dataInicial;
+    }
+
+    public void setDataInicial(Date dataInicial) {
+	this.dataInicial = dataInicial;
+    }
+
+    public Date getDataFinal() {
+	return dataFinal;
+    }
+
+    public void setDataFinal(Date dataFinal) {
+	this.dataFinal = dataFinal;
     }
 
     public String getDescricao() {
@@ -69,11 +89,19 @@ public class SuiteDeTeste {
     }
 
     @Override
+    public String toString() {
+	return "PlanoDeTeste [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
+		+ (dataInicial != null ? "dataInicial=" + dataInicial + ", " : "")
+		+ (dataFinal != null ? "dataFinal=" + dataFinal + ", " : "")
+		+ (descricao != null ? "descricao=" + descricao + ", " : "")
+		+ (projeto != null ? "projeto=" + projeto : "") + "]";
+    }
+
+    @Override
     public int hashCode() {
 	final int prime = 31;
 	int result = 1;
 	result = prime * result + ((id == null) ? 0 : id.hashCode());
-	result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 	return result;
     }
 
@@ -88,7 +116,7 @@ public class SuiteDeTeste {
 	if (getClass() != obj.getClass()) {
 	    return false;
 	}
-	SuiteDeTeste other = (SuiteDeTeste) obj;
+	Release other = (Release) obj;
 	if (id == null) {
 	    if (other.id != null) {
 		return false;
@@ -96,20 +124,7 @@ public class SuiteDeTeste {
 	} else if (!id.equals(other.id)) {
 	    return false;
 	}
-	if (nome == null) {
-	    if (other.nome != null) {
-		return false;
-	    }
-	} else if (!nome.equals(other.nome)) {
-	    return false;
-	}
 	return true;
-    }
-
-    @Override
-    public String toString() {
-	return "SuiteDeTeste [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
-		+ (descricao != null ? "descricao=" + descricao : "") + "]";
     }
 
 }

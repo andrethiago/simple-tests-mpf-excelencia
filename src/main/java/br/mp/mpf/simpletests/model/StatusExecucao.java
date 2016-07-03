@@ -2,15 +2,15 @@ package br.mp.mpf.simpletests.model;
 
 import br.mp.mpf.simpletests.infra.model.EnumTypeInteger;
 
-public enum TipoTeste implements EnumTypeInteger {
+public enum StatusExecucao implements EnumTypeInteger {
 
-    FUNCIONAL(1, "Funcional"), USABILIDADE(2, "Usabilidade"), SEGURANCA(3, "Segurança"), DESEMPENHO(4, "Desempenho");
+    FALHOU(1, "Falhou"), PASSOU(2, "Passou"), NAO_EXECUTADO(3, "Não Executado");
 
     Integer codigo;
 
     String descricao;
 
-    TipoTeste(Integer codigo, String descricao) {
+    StatusExecucao(Integer codigo, String descricao) {
 	this.codigo = codigo;
 	this.descricao = descricao;
     }

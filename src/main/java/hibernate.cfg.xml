@@ -16,9 +16,13 @@
         <property name="hibernate.show_sql">true</property>
         
         <mapping class="br.mp.mpf.simpletests.model.Projeto" />
-        <mapping class="br.mp.mpf.simpletests.model.PlanoDeTeste" />
+        <mapping class="br.mp.mpf.simpletests.model.Release" />
         <mapping class="br.mp.mpf.simpletests.model.Historia" />
         <mapping class="br.mp.mpf.simpletests.model.CasoDeTeste" />
+        <mapping class="br.mp.mpf.simpletests.model.SuiteDeTeste" />
+        <mapping class="br.mp.mpf.simpletests.model.ExecucaoTeste" />
+        <mapping class="br.mp.mpf.simpletests.model.ItemExecucaoTeste" />
+        <mapping class="br.mp.mpf.simpletests.model.Defeito" />
         <mapping class="br.mp.mpf.simpletests.model.Usuario" />
         
     </session-factory>
