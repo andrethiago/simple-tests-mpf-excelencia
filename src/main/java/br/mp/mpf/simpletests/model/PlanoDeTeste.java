@@ -3,20 +3,46 @@ package br.mp.mpf.simpletests.model;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "PLANO_DE_TESTE")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_PLANO_DE_TESTE", allocationSize = 1)
 public class PlanoDeTeste {
 
+	@Id
+	@Column(name = "ID_PLANO_DE_TESTE", nullable = false, unique = true)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
 	private Long id;
 
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@JoinColumn(name = "ID_PROJETO", nullable = false)
 	private Projeto projeto;
 
+	@Column(name = "NOME", nullable = false, length = 500)
 	private String nome; // ex: RELEASE 01, SPRINT 02
 
+	@Column(name = "DATA_INICIAL", nullable = false)
 	private Date dataInicial;
 
+	@Column(name = "DATA_FINAL", nullable = false)
 	private Date dataFinal;
 
+	@Column(name = "DESCRICAO", nullable = true, length = 4000)
 	private String descricao;
 
+	@Transient
 	private Set<Historia> escopo;
 
 	public Long getId() {

@@ -1,16 +1,27 @@
 package br.mp.mpf.simpletests.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "PROJETO")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_PROJETO", allocationSize = 1)
 public class Projeto {
 
+	@Id
+	@Column(name = "ID_PROJETO", nullable = false, unique = true)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
 	private Long id;
 
+	@Column(name = "NOME", nullable = false, length = 500)
 	private String nome;
 
+	@Column(name = "DESCRICAO", nullable = true, length = 4000)
 	private String descricao;
 
 	public Long getId() {
