@@ -17,6 +17,9 @@
         
         <mapping class="br.mp.mpf.simpletests.model.Projeto" />
         <mapping class="br.mp.mpf.simpletests.model.PlanoDeTeste" />
+        <mapping class="br.mp.mpf.simpletests.model.Historia" />
+        <mapping class="br.mp.mpf.simpletests.model.CasoDeTeste" />
+        <mapping class="br.mp.mpf.simpletests.model.Usuario" />
         
     </session-factory>
 

@@ -1,10 +1,28 @@
 package br.mp.mpf.simpletests.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "USUARIO")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_USUARIO", allocationSize = 1)
 public class Usuario {
 
+	@Id
+	@Column(name = "ID_USUARIO", nullable = false, unique = true)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
 	private Long id;
 
+	@Column(name = "NOME", nullable = false, length = 500)
 	private Long nome;
+	
+	@Column(name = "EMAIL", nullable = false, length = 500)
+	private String email;
 
 	public Long getId() {
 		return id;
@@ -20,6 +38,14 @@ public class Usuario {
 
 	public void setNome(Long nome) {
 		this.nome = nome;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Usuario [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
+				+ (email != null ? "email=" + email : "") + "]";
 	}
 
 	@Override
