@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -35,6 +36,10 @@ public class SuiteDeTeste {
 
     @Column(name = "DESCRICAO", nullable = true, length = 4000)
     private String descricao;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_PROJETO", nullable = false)
+    private Projeto projeto;
 
     public Long getId() {
 	return id;
@@ -66,6 +71,14 @@ public class SuiteDeTeste {
 
     public void setDescricao(String descricao) {
 	this.descricao = descricao;
+    }
+
+    public Projeto getProjeto() {
+	return projeto;
+    }
+
+    public void setProjeto(Projeto projeto) {
+	this.projeto = projeto;
     }
 
     @Override

@@ -90,7 +90,7 @@ public class Release {
 
     @Override
     public String toString() {
-	return "PlanoDeTeste [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
+	return "Release [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
 		+ (dataInicial != null ? "dataInicial=" + dataInicial + ", " : "")
 		+ (dataFinal != null ? "dataFinal=" + dataFinal + ", " : "")
 		+ (descricao != null ? "descricao=" + descricao + ", " : "")

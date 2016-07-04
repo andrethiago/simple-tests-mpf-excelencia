@@ -24,6 +24,14 @@ public class Projeto {
     @Column(name = "DESCRICAO", nullable = true, length = 4000)
     private String descricao;
 
+    public Projeto() {
+    }
+
+    public Projeto(String nome, String descricao) {
+	this.nome = nome;
+	this.descricao = descricao;
+    }
+
     public Long getId() {
 	return id;
     }
@@ -64,18 +72,23 @@ public class Projeto {
 
     @Override
     public boolean equals(Object obj) {
-	if (this == obj)
+	if (this == obj) {
 	    return true;
-	if (obj == null)
+	}
+	if (obj == null) {
 	    return false;
-	if (getClass() != obj.getClass())
+	}
+	if (getClass() != obj.getClass()) {
 	    return false;
+	}
 	Projeto other = (Projeto) obj;
 	if (id == null) {
-	    if (other.id != null)
+	    if (other.id != null) {
 		return false;
-	} else if (!id.equals(other.id))
+	    }
+	} else if (!id.equals(other.id)) {
 	    return false;
+	}
 	return true;
     }
 

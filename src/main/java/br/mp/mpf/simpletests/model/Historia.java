@@ -31,6 +31,17 @@ public class Historia {
     @JoinColumn(name = "ID_RELEASE", nullable = false)
     private Release release;
 
+    public Historia() {
+
+    }
+
+    public Historia(Release release, String nome, String descricao) {
+	super();
+	this.release = release;
+	this.nome = nome;
+	this.descricao = descricao;
+    }
+
     public Long getId() {
 	return id;
     }

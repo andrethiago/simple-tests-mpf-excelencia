@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -41,7 +42,7 @@ public class CasoDeTeste {
     private String descricao;
 
     @Column(name = "PRE_CONDICOES", nullable = false, length = 10000)
-    private String precondicoes;
+    private String preCondicoes;
 
     @Column(name = "PASSOS", nullable = false, length = 10000)
     private String passos;
@@ -53,10 +54,14 @@ public class CasoDeTeste {
     @Type(type = "TipoTeste")
     private TipoTeste tipo;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_PROJETO", nullable = false)
+    private Projeto projeto;
+
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "HISTORIA_CASO_DE_TESTE", joinColumns = {
+    @JoinTable(name = "HISTORIAS_CASO_DE_TESTE", joinColumns = {
 	    @JoinColumn(name = "ID_CASO_DE_TESTE") }, inverseJoinColumns = { @JoinColumn(name = "ID_HISTORIA") })
-    private Set<Historia> historias;
+    private Set<Historia> historiasAssociadas;
 
     public Long getId() {
 	return id;
@@ -90,12 +95,12 @@ public class CasoDeTeste {
 	this.tipo = tipo;
     }
 
-    public String getPrecondicoes() {
-	return precondicoes;
+    public String getPreCondicoes() {
+	return preCondicoes;
     }
 
-    public void setPrecondicoes(String precondicoes) {
-	this.precondicoes = precondicoes;
+    public void setPreCondicoes(String preCondicoes) {
+	this.preCondicoes = preCondicoes;
     }
 
     public String getPassos() {
@@ -114,12 +119,20 @@ public class CasoDeTeste {
 	this.resultadoEsperado = resultadoEsperado;
     }
 
-    public Set<Historia> getHistorias() {
-	return historias;
+    public Projeto getProjeto() {
+	return projeto;
     }
 
-    public void setHistorias(Set<Historia> historias) {
-	this.historias = historias;
+    public void setProjeto(Projeto projeto) {
+	this.projeto = projeto;
+    }
+
+    public Set<Historia> getHistoriasAssociadas() {
+	return historiasAssociadas;
+    }
+
+    public void setHistoriasAssociadas(Set<Historia> historiasAssociadas) {
+	this.historiasAssociadas = historiasAssociadas;
     }
 
     @Override
@@ -154,9 +167,12 @@ public class CasoDeTeste {
 
     @Override
     public String toString() {
-	return "CasoDeTeste [" + (id != null ? "id=" + id + ", " : "") + (tipo != null ? "tipo=" + tipo + ", " : "")
-		+ (nome != null ? "nome=" + nome + ", " : "")
-		+ (descricao != null ? "descricao=" + descricao + ", " : "");
+	return "CasoDeTeste [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
+		+ (tipo != null ? "tipo=" + tipo + ", " : "")
+		+ (descricao != null ? "descricao=" + descricao + ", " : "")
+		+ (preCondicoes != null ? "preCondicoes=" + preCondicoes + ", " : "")
+		+ (passos != null ? "passos=" + passos + ", " : "")
+		+ (resultadoEsperado != null ? "resultadoEsperado=" + resultadoEsperado : "") + "]";
     }
 
 }
