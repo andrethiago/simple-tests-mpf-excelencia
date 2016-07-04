@@ -24,6 +24,9 @@ public class Usuario {
     @Column(name = "EMAIL", nullable = false, length = 500)
     private String email;
 
+    @Column(name = "SENHA", nullable = false, length = 500)
+    private String senha;
+
     public Long getId() {
 	return id;
     }
@@ -38,6 +41,22 @@ public class Usuario {
 
     public void setNome(Long nome) {
 	this.nome = nome;
+    }
+
+    public String getEmail() {
+	return email;
+    }
+
+    public void setEmail(String email) {
+	this.email = email;
+    }
+
+    public String getSenha() {
+	return senha;
+    }
+
+    public void setSenha(String senha) {
+	this.senha = senha;
     }
 
     @Override
