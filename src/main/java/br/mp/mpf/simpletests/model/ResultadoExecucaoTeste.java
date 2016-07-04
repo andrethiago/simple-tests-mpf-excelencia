@@ -19,14 +19,14 @@ import org.hibernate.annotations.TypeDefs;
 import br.mp.mpf.simpletests.infra.model.GenericEnumUserType;
 
 @Entity
-@Table(name = "ITEM_EXECUCAO_TESTE")
-@SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_ITEM_EXECUCAO_TESTE", allocationSize = 1)
+@Table(name = "RESULTADO_EXECUCAO_TESTE")
+@SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_RESULTADO_EXECUCAO_TESTE", allocationSize = 1)
 @TypeDefs(value = { @TypeDef(name = "StatusExecucao", typeClass = GenericEnumUserType.class, parameters = {
 	@Parameter(name = "enumClass", value = "br.mp.mpf.simpletests.model.StatusExecucao") }) })
-public class ItemExecucaoTeste {
+public class ResultadoExecucaoTeste {
 
     @Id
-    @Column(name = "ID_ITEM_EXECUCAO_TESTE", nullable = false, unique = true)
+    @Column(name = "ID_RESULTADO_EXECUCAO_TESTE", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
     private Long id;
 
@@ -45,6 +45,10 @@ public class ItemExecucaoTeste {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ID_EXECUCAO", nullable = false)
     private ExecucaoTeste execucao;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ID_TESTADOR", nullable = false)
+    private Usuario testador;
 
     public Long getId() {
 	return id;
@@ -86,6 +90,14 @@ public class ItemExecucaoTeste {
 	this.execucao = execucao;
     }
 
+    public Usuario getTestador() {
+	return testador;
+    }
+
+    public void setTestador(Usuario testador) {
+	this.testador = testador;
+    }
+
     @Override
     public int hashCode() {
 	final int prime = 31;
@@ -106,7 +118,7 @@ public class ItemExecucaoTeste {
 	if (getClass() != obj.getClass()) {
 	    return false;
 	}
-	ItemExecucaoTeste other = (ItemExecucaoTeste) obj;
+	ResultadoExecucaoTeste other = (ResultadoExecucaoTeste) obj;
 	if (casoDeTeste == null) {
 	    if (other.casoDeTeste != null) {
 		return false;
@@ -126,9 +138,10 @@ public class ItemExecucaoTeste {
 
     @Override
     public String toString() {
-	return "ItemExecucaoTeste [" + (id != null ? "id=" + id + ", " : "")
+	return "ResultadoExecucaoTeste [" + (id != null ? "id=" + id + ", " : "")
 		+ (casoDeTeste != null ? "casoDeTeste=" + casoDeTeste + ", " : "")
-		+ (status != null ? "status=" + status + ", " : "") + "]";
+		+ (status != null ? "status=" + status + ", " : "") + (testador != null ? "testador=" + testador : "")
+		+ "]";
     }
 
     public boolean passou() {

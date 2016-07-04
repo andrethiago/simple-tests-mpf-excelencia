@@ -21,7 +21,7 @@
         <mapping class="br.mp.mpf.simpletests.model.CasoDeTeste" />
         <mapping class="br.mp.mpf.simpletests.model.SuiteDeTeste" />
         <mapping class="br.mp.mpf.simpletests.model.ExecucaoTeste" />
-        <mapping class="br.mp.mpf.simpletests.model.ItemExecucaoTeste" />
+        <mapping class="br.mp.mpf.simpletests.model.ResultadoExecucaoTeste" />
         <mapping class="br.mp.mpf.simpletests.model.Defeito" />
         <mapping class="br.mp.mpf.simpletests.model.Usuario" />
         

@@ -33,17 +33,13 @@ public class ExecucaoTeste {
     @JoinColumn(name = "ID_RELEASE", nullable = false)
     private Release release;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ID_TESTADOR", nullable = false)
-    private Usuario testador;
-
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "SUITE_DE_TESTE_EXECUCAO", joinColumns = {
 	    @JoinColumn(name = "ID_EXECUCAO_TESTE") }, inverseJoinColumns = { @JoinColumn(name = "ID_SUITE_DE_TESTE") })
     private Set<SuiteDeTeste> suites;
 
     @OneToMany(mappedBy = "execucao")
-    private Set<ItemExecucaoTeste> itensExecucao;
+    private Set<ResultadoExecucaoTeste> resultadosExecucao;
 
     public Long getId() {
 	return id;
@@ -63,7 +59,7 @@ public class ExecucaoTeste {
 
     public Boolean getPassou() {
 	boolean passou = true;
-	for (ItemExecucaoTeste itemExecucao : itensExecucao) {
+	for (ResultadoExecucaoTeste itemExecucao : resultadosExecucao) {
 	    if (itemExecucao.falhou() || itemExecucao.naoExecutado()) {
 		return false;
 	    }
@@ -87,20 +83,12 @@ public class ExecucaoTeste {
 	this.suites = suites;
     }
 
-    public Set<ItemExecucaoTeste> getItensExecucao() {
-	return itensExecucao;
+    public Set<ResultadoExecucaoTeste> getResultadosExecucao() {
+	return resultadosExecucao;
     }
 
-    public void setItensExecucao(Set<ItemExecucaoTeste> itensExecucao) {
-	this.itensExecucao = itensExecucao;
-    }
-
-    public Usuario getTestador() {
-	return testador;
-    }
-
-    public void setTestador(Usuario testador) {
-	this.testador = testador;
+    public void setResultadosExecucao(Set<ResultadoExecucaoTeste> resultadosExecucao) {
+	this.resultadosExecucao = resultadosExecucao;
     }
 
     @Override
@@ -136,8 +124,7 @@ public class ExecucaoTeste {
     @Override
     public String toString() {
 	return "ExecucaoTeste [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
-		+ ("passou=" + getPassou() + ", ") + (release != null ? "release=" + release : "")
-		+ (testador != null ? "testador=" + testador : "") + "]";
+		+ ("passou=" + getPassou() + ", ") + (release != null ? "release=" + release : "") + "]";
     }
 
 }

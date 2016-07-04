@@ -29,7 +29,7 @@ public class Defeito {
 
     @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "ID_ITEM_EXECUCAO_TESTE", nullable = false)
-    private ItemExecucaoTeste itemExecucao;
+    private ResultadoExecucaoTeste itemExecucao;
 
     public Long getId() {
 	return id;
@@ -55,11 +55,11 @@ public class Defeito {
 	this.descricao = descricao;
     }
 
-    public ItemExecucaoTeste getItemExecucao() {
+    public ResultadoExecucaoTeste getItemExecucao() {
 	return itemExecucao;
     }
 
-    public void setItemExecucao(ItemExecucaoTeste itemExecucao) {
+    public void setItemExecucao(ResultadoExecucaoTeste itemExecucao) {
 	this.itemExecucao = itemExecucao;
     }
 
