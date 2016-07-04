@@ -33,6 +33,10 @@ public class ExecucaoTeste {
     @JoinColumn(name = "ID_RELEASE", nullable = false)
     private Release release;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "ID_TESTADOR", nullable = false)
+    private Usuario testador;
+
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "SUITE_DE_TESTE_EXECUCAO", joinColumns = {
 	    @JoinColumn(name = "ID_EXECUCAO_TESTE") }, inverseJoinColumns = { @JoinColumn(name = "ID_SUITE_DE_TESTE") })
@@ -91,6 +95,14 @@ public class ExecucaoTeste {
 	this.itensExecucao = itensExecucao;
     }
 
+    public Usuario getTestador() {
+	return testador;
+    }
+
+    public void setTestador(Usuario testador) {
+	this.testador = testador;
+    }
+
     @Override
     public int hashCode() {
 	final int prime = 31;
@@ -124,7 +136,8 @@ public class ExecucaoTeste {
     @Override
     public String toString() {
 	return "ExecucaoTeste [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
-		+ ("passou=" + getPassou() + ", ") + (release != null ? "release=" + release : "") + "]";
+		+ ("passou=" + getPassou() + ", ") + (release != null ? "release=" + release : "")
+		+ (testador != null ? "testador=" + testador : "") + "]";
     }
 
 }

@@ -46,10 +46,6 @@ public class ItemExecucaoTeste {
     @JoinColumn(name = "ID_EXECUCAO", nullable = false)
     private ExecucaoTeste execucao;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "ID_TESTADOR", nullable = false)
-    private Usuario testador;
-
     public Long getId() {
 	return id;
     }
@@ -88,14 +84,6 @@ public class ItemExecucaoTeste {
 
     public void setExecucao(ExecucaoTeste execucao) {
 	this.execucao = execucao;
-    }
-
-    public Usuario getTestador() {
-	return testador;
-    }
-
-    public void setTestador(Usuario testador) {
-	this.testador = testador;
     }
 
     @Override
@@ -140,8 +128,7 @@ public class ItemExecucaoTeste {
     public String toString() {
 	return "ItemExecucaoTeste [" + (id != null ? "id=" + id + ", " : "")
 		+ (casoDeTeste != null ? "casoDeTeste=" + casoDeTeste + ", " : "")
-		+ (status != null ? "status=" + status + ", " : "") + (testador != null ? "testador=" + testador : "")
-		+ "]";
+		+ (status != null ? "status=" + status + ", " : "") + "]";
     }
 
     public boolean passou() {

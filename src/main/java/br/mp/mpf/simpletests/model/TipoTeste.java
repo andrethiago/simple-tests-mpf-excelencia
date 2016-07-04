@@ -4,7 +4,8 @@ import br.mp.mpf.simpletests.infra.model.EnumTypeInteger;
 
 public enum TipoTeste implements EnumTypeInteger {
 
-    FUNCIONAL(1, "Funcional"), USABILIDADE(2, "Usabilidade"), SEGURANCA(3, "Segurança"), DESEMPENHO(4, "Desempenho");
+    FUNCIONAL(1, "Funcional"), USABILIDADE(2, "Usabilidade"), SEGURANCA(3, "Segurança"), DESEMPENHO(4,
+	    "Desempenho"), REGRESSAO(5, "Regressão"), AUTOMATIZADO(6, "Automatizado"), OUTRO(7, "Outro");
 
     Integer codigo;
 
