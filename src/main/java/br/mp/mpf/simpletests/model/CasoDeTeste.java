@@ -1,6 +1,6 @@
 package br.mp.mpf.simpletests.model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -61,7 +61,7 @@ public class CasoDeTeste {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "HISTORIAS_CASO_DE_TESTE", joinColumns = {
 	    @JoinColumn(name = "ID_CASO_DE_TESTE") }, inverseJoinColumns = { @JoinColumn(name = "ID_HISTORIA") })
-    private Set<Historia> historiasAssociadas;
+    private List<Historia> historiasAssociadas;
 
     public Long getId() {
 	return id;
@@ -127,11 +127,11 @@ public class CasoDeTeste {
 	this.projeto = projeto;
     }
 
-    public Set<Historia> getHistoriasAssociadas() {
+    public List<Historia> getHistoriasAssociadas() {
 	return historiasAssociadas;
     }
 
-    public void setHistoriasAssociadas(Set<Historia> historiasAssociadas) {
+    public void setHistoriasAssociadas(List<Historia> historiasAssociadas) {
 	this.historiasAssociadas = historiasAssociadas;
     }
 

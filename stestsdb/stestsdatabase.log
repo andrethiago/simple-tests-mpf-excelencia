@@ -1,0 +1,612 @@
+/*C1*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C2*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C3*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C4*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+/*C5*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+/*C6*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C7*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+/*C8*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+/*C9*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+/*C10*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+/*C11*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C12*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C15*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C16*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C17*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C18*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C19*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+/*C20*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C21*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C19*/DISCONNECT
+/*C10*/DISCONNECT
+/*C9*/DISCONNECT
+/*C8*/DISCONNECT
+/*C7*/DISCONNECT
+/*C5*/DISCONNECT
+/*C4*/DISCONNECT
+/*C22*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C23*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+/*C24*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+/*C23*/DISCONNECT
+/*C24*/DISCONNECT
+/*C25*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C26*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+/*C27*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C26*/DISCONNECT
+/*C28*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C29*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C30*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C31*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C33*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C34*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C35*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C40*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C41*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C42*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C43*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C44*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C45*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C46*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C47*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C48*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C49*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C50*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C51*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C52*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
+/*C53*/SET SCHEMA PUBLIC
+CONNECT USER SA
+SET AUTOCOMMIT FALSE
+SET AUTOCOMMIT TRUE
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        drop constraint UK_dk3y1a87st27ecc1g9xfcm251
+\u000a    alter table CASO_DE_TESTE_SUITE_DE_TESTE \u000a        add constraint UK_dk3y1a87st27ecc1g9xfcm251  unique (ID_CASO_DE_TESTE)
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        drop constraint UK_qakg89gr4jk7pwy1h0q7fup6u
+\u000a    alter table HISTORIAS_CASO_DE_TESTE \u000a        add constraint UK_qakg89gr4jk7pwy1h0q7fup6u  unique (ID_HISTORIA)
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        drop constraint UK_lcf4clye1ih9xio6mfdikfev3
+\u000a    alter table SUITE_DE_TESTE_EXECUCAO \u000a        add constraint UK_lcf4clye1ih9xio6mfdikfev3  unique (ID_SUITE_DE_TESTE)
+SET AUTOCOMMIT FALSE
+DISCONNECT
