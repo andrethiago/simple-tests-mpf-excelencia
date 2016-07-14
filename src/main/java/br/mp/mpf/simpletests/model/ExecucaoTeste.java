@@ -1,5 +1,6 @@
 package br.mp.mpf.simpletests.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -11,10 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "EXECUCAO_TESTE")
@@ -33,12 +36,14 @@ public class ExecucaoTeste {
     @JoinColumn(name = "ID_RELEASE", nullable = false)
     private Release release;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "SUITE_DE_TESTE_EXECUCAO", joinColumns = {
-	    @JoinColumn(name = "ID_EXECUCAO_TESTE") }, inverseJoinColumns = { @JoinColumn(name = "ID_SUITE_DE_TESTE") })
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "SUITE_DE_TESTE_EXECUCAO", uniqueConstraints = {
+	    @UniqueConstraint(columnNames = { "ID_SUITE_DE_TESTE", "ID_EXECUCAO_TESTE" }) }, joinColumns = {
+		    @JoinColumn(name = "ID_EXECUCAO_TESTE") }, inverseJoinColumns = {
+			    @JoinColumn(name = "ID_SUITE_DE_TESTE") })
     private List<SuiteDeTeste> suites;
 
-    @OneToMany(mappedBy = "execucao")
+    @OneToMany(mappedBy = "execucao", cascade = CascadeType.ALL)
     private List<ResultadoExecucaoTeste> resultadosExecucao;
 
     public Long getId() {
@@ -119,6 +124,20 @@ public class ExecucaoTeste {
 	    return false;
 	}
 	return true;
+    }
+
+    public void adicionar(SuiteDeTeste suite) {
+	if (suites == null) {
+	    suites = new ArrayList<>();
+	}
+	suites.add(suite);
+    }
+
+    public void adicionar(ResultadoExecucaoTeste resultado) {
+	if (resultadosExecucao == null) {
+	    resultadosExecucao = new ArrayList<>();
+	}
+	resultadosExecucao.add(resultado);
     }
 
     @Override

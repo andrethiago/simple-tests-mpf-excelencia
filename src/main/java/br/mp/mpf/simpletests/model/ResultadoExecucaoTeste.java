@@ -1,5 +1,6 @@
 package br.mp.mpf.simpletests.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -38,7 +39,7 @@ public class ResultadoExecucaoTeste {
     @Type(type = "StatusExecucao")
     private StatusExecucao status = StatusExecucao.NAO_EXECUTADO;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_DEFEITO", nullable = true)
     private Defeito defeito;
 

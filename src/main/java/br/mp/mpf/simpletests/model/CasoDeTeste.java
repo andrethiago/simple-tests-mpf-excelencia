@@ -11,10 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.Type;
@@ -54,13 +55,15 @@ public class CasoDeTeste {
     @Type(type = "TipoTeste")
     private TipoTeste tipo;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_PROJETO", nullable = false)
     private Projeto projeto;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "HISTORIAS_CASO_DE_TESTE", joinColumns = {
-	    @JoinColumn(name = "ID_CASO_DE_TESTE") }, inverseJoinColumns = { @JoinColumn(name = "ID_HISTORIA") })
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "HISTORIAS_CASO_DE_TESTE", uniqueConstraints = {
+	    @UniqueConstraint(columnNames = { "ID_CASO_DE_TESTE", "ID_HISTORIA" }) }, joinColumns = {
+		    @JoinColumn(name = "ID_CASO_DE_TESTE") }, inverseJoinColumns = {
+			    @JoinColumn(name = "ID_HISTORIA") })
     private List<Historia> historiasAssociadas;
 
     public Long getId() {
