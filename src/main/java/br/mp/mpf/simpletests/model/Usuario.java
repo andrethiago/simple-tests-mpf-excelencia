@@ -19,7 +19,7 @@ public class Usuario {
     private Long id;
 
     @Column(name = "NOME", nullable = false, length = 500)
-    private Long nome;
+    private String nome;
 
     @Column(name = "EMAIL", nullable = false, length = 500)
     private String email;
@@ -35,11 +35,11 @@ public class Usuario {
 	this.id = id;
     }
 
-    public Long getNome() {
+    public String getNome() {
 	return nome;
     }
 
-    public void setNome(Long nome) {
+    public void setNome(String nome) {
 	this.nome = nome;
     }
 

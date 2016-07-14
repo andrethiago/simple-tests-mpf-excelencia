@@ -1,6 +1,6 @@
 package br.mp.mpf.simpletests.model;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -36,10 +36,10 @@ public class ExecucaoTeste {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "SUITE_DE_TESTE_EXECUCAO", joinColumns = {
 	    @JoinColumn(name = "ID_EXECUCAO_TESTE") }, inverseJoinColumns = { @JoinColumn(name = "ID_SUITE_DE_TESTE") })
-    private Set<SuiteDeTeste> suites;
+    private List<SuiteDeTeste> suites;
 
     @OneToMany(mappedBy = "execucao")
-    private Set<ResultadoExecucaoTeste> resultadosExecucao;
+    private List<ResultadoExecucaoTeste> resultadosExecucao;
 
     public Long getId() {
 	return id;
@@ -75,19 +75,19 @@ public class ExecucaoTeste {
 	this.release = release;
     }
 
-    public Set<SuiteDeTeste> getSuites() {
+    public List<SuiteDeTeste> getSuites() {
 	return suites;
     }
 
-    public void setSuites(Set<SuiteDeTeste> suites) {
+    public void setSuites(List<SuiteDeTeste> suites) {
 	this.suites = suites;
     }
 
-    public Set<ResultadoExecucaoTeste> getResultadosExecucao() {
+    public List<ResultadoExecucaoTeste> getResultadosExecucao() {
 	return resultadosExecucao;
     }
 
-    public void setResultadosExecucao(Set<ResultadoExecucaoTeste> resultadosExecucao) {
+    public void setResultadosExecucao(List<ResultadoExecucaoTeste> resultadosExecucao) {
 	this.resultadosExecucao = resultadosExecucao;
     }
 

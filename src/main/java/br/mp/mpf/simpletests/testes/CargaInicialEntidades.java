@@ -24,347 +24,380 @@ import br.mp.mpf.simpletests.util.HibernateUtil;
 
 public class CargaInicialEntidades {
 
-	public static void main(String[] args) {
-		CargaInicialEntidades cie = new CargaInicialEntidades();
+    public static void main(String[] args) {
+	CargaInicialEntidades cie = new CargaInicialEntidades();
 
-		List<Projeto> projetos = cie.listaProjetos();
-		if (CollectionUtils.isEmpty(projetos)) {
-			cie.incluiProjetos(cie);
-			cie.listaProjetos();
-		}
-
-		// inclui releases
-		Projeto moduloExtrajudicial = cie.getProjeto(Long.valueOf(1L));
-		List<Release> releasesUnico = cie.listarReleases(moduloExtrajudicial);
-		if (CollectionUtils.isEmpty(releasesUnico)) {
-			cie.incluirReleases(moduloExtrajudicial);
-			cie.listarReleases(moduloExtrajudicial);
-		}
-
-		// inclui historias
-		Release sprintUnico01 = cie.getRelease(Long.valueOf(1L));
-		List<Historia> historias = cie.listarHistorias(sprintUnico01);
-		if (CollectionUtils.isEmpty(historias)) {
-			cie.incluirHistorias(sprintUnico01);
-			cie.listarHistorias(sprintUnico01);
-		}
-
-		// inclui caso de teste
-		List<CasoDeTeste> casosDeTestes = cie.listarCasosDeTeste(moduloExtrajudicial);
-		if (CollectionUtils.isEmpty(casosDeTestes)) {
-			cie.incluirCasosDeTeste(moduloExtrajudicial);
-			casosDeTestes = cie.listarCasosDeTeste(moduloExtrajudicial);
-		}
-
-		// inclui suites de teste
-		List<SuiteDeTeste> suitesDeTestes = cie.listarSuitesDeTeste(moduloExtrajudicial);
-		if (CollectionUtils.isEmpty(suitesDeTestes)) {
-			cie.incluirSuitesDeTeste(moduloExtrajudicial, casosDeTestes);
-			suitesDeTestes = cie.listarSuitesDeTeste(moduloExtrajudicial);
-		}
-
-		// incluir execução de teste
-
-		List<ExecucaoTeste> execucoes = cie.listarExecucoes(sprintUnico01);
-		if (CollectionUtils.isEmpty(execucoes)) {
-			cie.incluirExecucoes(sprintUnico01);
-			execucoes = cie.listarExecucoes(sprintUnico01);
-		}
-
-		// inclui usuários
-		Usuario usuario = cie.incluiUsuario("João", "joao@mpf.mp.br", "123456");
-		cie.incluiUsuario("Maria", "maria@mpf.mp.br", "12345678");
-
-		// inclui resultado de execução
-		cie.incluiResultadoExecucao(execucoes.get(0), execucoes.get(0).getSuites().get(0).getCasos().get(0),
-				StatusExecucao.PASSOU, usuario);
-		cie.incluiResultadoExecucao(execucoes.get(0), execucoes.get(0).getSuites().get(0).getCasos().get(1),
-				StatusExecucao.PASSOU, usuario);
-
-		System.exit(0);
+	List<Projeto> projetos = cie.listaProjetos();
+	if (CollectionUtils.isEmpty(projetos)) {
+	    cie.incluiProjetos(cie);
+	    cie.listaProjetos();
 	}
 
-	private void incluiResultadoExecucao(ExecucaoTeste execucaoTeste, CasoDeTeste casoDeTeste,
-			StatusExecucao statusExecucao, Usuario testador) {
-		ResultadoExecucaoTeste resultado = new ResultadoExecucaoTeste();
-		resultado.setCasoDeTeste(casoDeTeste);
-		resultado.setExecucao(execucaoTeste);
-		resultado.setStatus(statusExecucao);
-		resultado.setTestador(testador);
+	// inclui releases
+	Projeto moduloExtrajudicial = cie.getProjeto(Long.valueOf(1L));
+	List<Release> releasesUnico = cie.listarReleases(moduloExtrajudicial);
+	if (CollectionUtils.isEmpty(releasesUnico)) {
+	    cie.incluirReleases(moduloExtrajudicial);
+	    cie.listarReleases(moduloExtrajudicial);
 	}
 
-	void incluirSuitesDeTeste(Projeto projeto, List<CasoDeTeste> casosDeTestes) {
-		SuiteDeTeste suite = new SuiteDeTeste();
-		suite.setProjeto(projeto);
-		suite.setCasos(casosDeTestes);
-		suite.setNome("SUITE 01");
-
-		Session session = HibernateUtil.getSession();
-		Transaction transaction = session.beginTransaction();
-		try {
-			session.save(suite);
-			transaction.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			transaction.rollback();
-		} finally {
-			session.close();
-		}
+	// inclui historias
+	Release sprintUnico01 = cie.getRelease(Long.valueOf(1L));
+	List<Historia> historias = cie.listarHistorias(sprintUnico01);
+	if (CollectionUtils.isEmpty(historias)) {
+	    cie.incluirHistorias(sprintUnico01);
+	    cie.listarHistorias(sprintUnico01);
 	}
 
-	List<SuiteDeTeste> listarSuitesDeTeste(Projeto projeto) {
-		Session session = HibernateUtil.getSession();
-
-		List<SuiteDeTeste> suites = session.createQuery("from SuiteDeTeste where projeto = :p").setEntity("p", projeto)
-				.list();
-		for (SuiteDeTeste suite : suites) {
-			System.out.println(suite);
-		}
-		session.close();
-
-		return suites;
+	// inclui caso de teste
+	List<CasoDeTeste> casosDeTestes = cie.listarCasosDeTeste(moduloExtrajudicial);
+	if (CollectionUtils.isEmpty(casosDeTestes)) {
+	    cie.incluirCasosDeTeste(moduloExtrajudicial);
+	    casosDeTestes = cie.listarCasosDeTeste(moduloExtrajudicial);
 	}
 
-	void incluiProjetos(CargaInicialEntidades tce) {
-		incluiProjeto("Sistema Único - Módulo Extrajudicial",
-				"Testes do módulo extrajudicial do Sistema Único de documentos do MPF.");
-		incluiProjeto("Sistema Único - Módulo Judicial",
-				"Testes do módulo judicial do Sistema Único de documentos do MPF.");
-		incluiProjeto("Sistema Gerenciador", "Testes do gerenciador de documentos do MPF.");
+	// inclui suites de teste
+	List<SuiteDeTeste> suitesDeTestes = cie.listarSuitesDeTeste(moduloExtrajudicial);
+	if (CollectionUtils.isEmpty(suitesDeTestes)) {
+	    cie.incluirSuitesDeTeste(moduloExtrajudicial, casosDeTestes);
+	    suitesDeTestes = cie.listarSuitesDeTeste(moduloExtrajudicial);
 	}
 
-	Projeto incluiProjeto(String nome, String descricao) {
-		Projeto projeto = new Projeto(nome, descricao);
-		Session session = HibernateUtil.getSession();
-		Transaction transaction = session.beginTransaction();
-		try {
-			session.save(projeto);
-			transaction.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			transaction.rollback();
-		} finally {
-			session.close();
-		}
-		return projeto;
+	// incluir execução de teste
+
+	List<ExecucaoTeste> execucoes = cie.listarExecucoes(sprintUnico01);
+	if (CollectionUtils.isEmpty(execucoes)) {
+	    cie.incluirExecucoes(sprintUnico01);
+	    execucoes = cie.listarExecucoes(sprintUnico01);
 	}
 
-	List<Projeto> listaProjetos() {
-		Session session = HibernateUtil.getSession();
+	// inclui usuários
+	Usuario usuario = cie.incluiUsuario("João", "joao@mpf.mp.br", "123456");
+	cie.incluiUsuario("Maria", "maria@mpf.mp.br", "12345678");
 
-		List<Projeto> projetos = session.createQuery("from Projeto").list();
-		for (Projeto projeto : projetos) {
-			System.out.println(projeto);
-		}
-		session.close();
+	// inclui resultado de execução
+	cie.incluiResultadoExecucao(execucoes.get(0), execucoes.get(0).getSuites().get(0).getCasos().get(0),
+		StatusExecucao.PASSOU, usuario);
+	cie.incluiResultadoExecucao(execucoes.get(0), execucoes.get(0).getSuites().get(0).getCasos().get(1),
+		StatusExecucao.PASSOU, usuario);
 
-		return projetos;
+	System.exit(0);
+    }
+
+    private Usuario incluiUsuario(String nome, String email, String senha) {
+	Usuario usuario = new Usuario();
+	usuario.setNome(nome);
+	usuario.setEmail(email);
+	usuario.setSenha(senha);
+
+	Session session = HibernateUtil.getSession();
+	Transaction transaction = session.beginTransaction();
+	try {
+	    session.save(usuario);
+	    transaction.commit();
+	    return usuario;
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    transaction.rollback();
+	    return null;	
+	} finally {
+	    session.close();
+	}
+    }
+
+    private void incluiResultadoExecucao(ExecucaoTeste execucaoTeste, CasoDeTeste casoDeTeste,
+	    StatusExecucao statusExecucao, Usuario testador) {
+	ResultadoExecucaoTeste resultado = new ResultadoExecucaoTeste();
+	resultado.setCasoDeTeste(casoDeTeste);
+	resultado.setExecucao(execucaoTeste);
+	resultado.setStatus(statusExecucao);
+	resultado.setTestador(testador);
+	
+	Session session = HibernateUtil.getSession();
+	Transaction transaction = session.beginTransaction();
+	try {
+	    session.save(resultado);
+	    transaction.commit();
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    transaction.rollback();
+	} finally {
+	    session.close();
+	}
+    }
+
+    void incluirSuitesDeTeste(Projeto projeto, List<CasoDeTeste> casosDeTestes) {
+	SuiteDeTeste suite = new SuiteDeTeste();
+	suite.setProjeto(projeto);
+	suite.setCasos(casosDeTestes);
+	suite.setNome("SUITE 01");
+
+	Session session = HibernateUtil.getSession();
+	Transaction transaction = session.beginTransaction();
+	try {
+	    session.save(suite);
+	    transaction.commit();
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    transaction.rollback();
+	} finally {
+	    session.close();
+	}
+    }
+
+    List<SuiteDeTeste> listarSuitesDeTeste(Projeto projeto) {
+	Session session = HibernateUtil.getSession();
+
+	List<SuiteDeTeste> suites = session.createQuery("from SuiteDeTeste where projeto = :p").setEntity("p", projeto)
+		.list();
+	for (SuiteDeTeste suite : suites) {
+	    System.out.println(suite);
+	}
+	session.close();
+
+	return suites;
+    }
+
+    void incluiProjetos(CargaInicialEntidades tce) {
+	incluiProjeto("Sistema Único - Módulo Extrajudicial",
+		"Testes do módulo extrajudicial do Sistema Único de documentos do MPF.");
+	incluiProjeto("Sistema Único - Módulo Judicial",
+		"Testes do módulo judicial do Sistema Único de documentos do MPF.");
+	incluiProjeto("Sistema Gerenciador", "Testes do gerenciador de documentos do MPF.");
+    }
+
+    Projeto incluiProjeto(String nome, String descricao) {
+	Projeto projeto = new Projeto(nome, descricao);
+	Session session = HibernateUtil.getSession();
+	Transaction transaction = session.beginTransaction();
+	try {
+	    session.save(projeto);
+	    transaction.commit();
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    transaction.rollback();
+	} finally {
+	    session.close();
+	}
+	return projeto;
+    }
+
+    List<Projeto> listaProjetos() {
+	Session session = HibernateUtil.getSession();
+
+	List<Projeto> projetos = session.createQuery("from Projeto").list();
+	for (Projeto projeto : projetos) {
+	    System.out.println(projeto);
+	}
+	session.close();
+
+	return projetos;
+    }
+
+    Projeto getProjeto(Long id) {
+	Session session = HibernateUtil.getSession();
+	Projeto projeto = (Projeto) session.byId(Projeto.class).load(id);
+	// Projeto projeto = (Projeto) session.get(id);
+	session.close();
+
+	return projeto;
+    }
+
+    private List<Release> listarReleases(Projeto projeto) {
+	Session session = HibernateUtil.getSession();
+
+	List<Release> releases = session.createQuery("from Release where projeto = :p").setEntity("p", projeto).list();
+	for (Release release : releases) {
+	    System.out.println(release);
+	}
+	session.close();
+
+	return releases;
+    }
+
+    void incluirReleases(Projeto projeto) {
+	Date dataInicial = new LocalDate(2014, 2, 1).toDate();
+	Date dataFinal = new LocalDate(2014, 2, 21).toDate();
+	incluiRelease(projeto, "Sprint 01", "Sprint com funcionalidades do módulo extrajudicial.", dataInicial,
+		dataFinal);
+	dataInicial = new LocalDate(dataInicial).plusWeeks(4).toDate();
+	dataFinal = new LocalDate(dataFinal).plusWeeks(4).toDate();
+	incluiRelease(projeto, "Sprint 02", "Sprint com funcionalidades do módulo judicial.", dataInicial, dataFinal);
+	dataInicial = new LocalDate(dataInicial).plusWeeks(4).toDate();
+	dataFinal = new LocalDate(dataFinal).plusWeeks(4).toDate();
+	incluiRelease(projeto, "Sprint 03", "Sprint com as seguintes funcionalidades: visibilidade, designação.",
+		dataInicial, dataFinal);
+    }
+
+    Release incluiRelease(Projeto projeto, String nome, String descricao, Date dataInicial, Date dataFinal) {
+	Release release = new Release();
+	release.setNome(nome);
+	release.setDescricao(descricao);
+	release.setProjeto(projeto);
+	release.setDataInicial(dataInicial);
+	release.setDataFinal(dataFinal);
+
+	Session session = HibernateUtil.getSession();
+	Transaction transaction = session.beginTransaction();
+	try {
+	    session.save(release);
+	    transaction.commit();
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    transaction.rollback();
+	} finally {
+	    session.close();
 	}
 
-	Projeto getProjeto(Long id) {
-		Session session = HibernateUtil.getSession();
-		Projeto projeto = (Projeto) session.byId(Projeto.class).load(id);
-		// Projeto projeto = (Projeto) session.get(id);
-		session.close();
+	return release;
+    }
 
-		return projeto;
+    Release getRelease(Long id) {
+	Session session = HibernateUtil.getSession();
+	Release release = (Release) session.get(Release.class, id);
+	session.close();
+
+	return release;
+    }
+
+    private void incluirHistorias(Release release) {
+	incluiHistoria(release, "Conclusão em lote de extrajudiciais",
+		"Como um usuário, eu quero consultar procedimentos extrajudiciais e poder concluí-los em conjunto.");
+	incluiHistoria(release, "Modificar o status do Procedimento quando houver um desapensamento",
+		"Como um usuário do Sistema Único, quando eu efetuar o desapensamento de um procedimento de outro procedimento o status daquele deve ser modificado para 'FINALIZADO'.");
+	incluiHistoria(release, "Impresssão da pauta de sessão segundo o formato e parâmetros escolhidos",
+		"Como um usuário do Sistema Único, eu quero escolher parâmetros e formato do relatório da pauta de sessão e o sistema deve gerar o relatório segundo essas escolhas.");
+	incluiHistoria(release, "Envelopamento em lote de procedimentos de uma sessão do Colegiado",
+		"Como um usuário do Sistema Único, eu quero escolher os procedimentos de uma sessão do meu Colegiado e poder envelopá-los em conjunto.");
+    }
+
+    private Historia incluiHistoria(Release release, String nome, String descricao) {
+	Historia historia = new Historia(release, nome, descricao);
+	Session session = HibernateUtil.getSession();
+	Transaction transaction = session.beginTransaction();
+	try {
+	    session.save(historia);
+	    transaction.commit();
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    transaction.rollback();
+	} finally {
+	    session.close();
+	}
+	return historia;
+    }
+
+    List<Historia> listarHistorias(Release release) {
+	Session session = HibernateUtil.getSession();
+
+	List<Historia> historias = session.createQuery("from Historia where release = :release")
+		.setEntity("release", release).list();
+	for (Historia historia : historias) {
+	    System.out.println(historia);
+	}
+	session.close();
+
+	return historias;
+    }
+
+    void incluirCasosDeTeste(Projeto projeto) {
+	incluiCasoDeTeste(projeto, "CT01 - Conclusão em Lote - Conclusão realizada com sucesso",
+		"Um usuário autenticado deve ser capaz de concluir procedimentos em lote.",
+		"O usuário deve estar autenticado no sistema, ter acesso à funcionalidade e "
+			+ "devem existir procedimentos distribuídos para o grupo de distribuição e ofícios selecionados.\n"
+			+ "Devem existir procedimentos localizados no setor do usuário entre as datas de recebimento selecionadas.\n"
+			+ "O usuário deve utilizar um navegador suportado.",
+		"1. Entre no menu Procedimento Extrajudicial/Adm > Concluir Procedimentos em Lote.\n"
+			+ "2. Escolha um grupo de distribuição e um ofício.\n"
+			+ "3. Escolha a data inicial e final de recebimento.\n" + "4. Clique no botão 'Consultar'.\n"
+			+ "5. Selecione todos os procedimentos retornados na consulta.\n"
+			+ "6. Clique no botão 'Concluir'.",
+		"Os procedimentos devem ser conclusos/movimentados e o sistema deve avisar um a um o destino da conclusão.",
+		TipoTeste.FUNCIONAL);
+
+	incluiCasoDeTeste(projeto,
+		"CT02 - Status do Procedimento modificado para finalizado quando houver um desapensamento",
+		"O sistema deve modificar o status do procedimento para FINALIZADO quando este for desapensado.",
+		"O usuário deve estar autenticado no sistema, ter acesso à funcionalidade e "
+			+ "o procedimento escolhido deve ser apenso de um outro procedimento.\n"
+			+ "O procedimento escolhido deve estar localizado no setor do usuário.\n"
+			+ "O usuário deve utilizar um navegador suportado.",
+		"1. Escolha o procedimento principal do apenso em questão.\n" + "2. Acesse a aba Referências.\n"
+			+ "3. Na lista de referências, escolha a linha em que aparece o procedimento apenso em questão.\n"
+			+ "5. Clique no botão 'Finalizar referencia'.",
+		"Acesse o procedimento apenso. Onde é exibido o Status deve estar escrito 'FINALIZADO'.",
+		TipoTeste.FUNCIONAL);
+
+    }
+
+    CasoDeTeste incluiCasoDeTeste(Projeto projeto, String nome, String descricao, String preCondicoes, String passos,
+	    String resultadosEsperados, TipoTeste tipo) {
+	CasoDeTeste casoDeTeste = new CasoDeTeste();
+	casoDeTeste.setProjeto(projeto);
+	casoDeTeste.setNome(nome);
+	casoDeTeste.setDescricao(descricao);
+	casoDeTeste.setPreCondicoes(preCondicoes);
+	casoDeTeste.setPassos(passos);
+	casoDeTeste.setResultadoEsperado(resultadosEsperados);
+	casoDeTeste.setTipo(tipo);
+
+	Session session = HibernateUtil.getSession();
+	Transaction transaction = session.beginTransaction();
+	try {
+	    session.save(casoDeTeste);
+	    transaction.commit();
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    transaction.rollback();
+	} finally {
+	    session.close();
 	}
 
-	private List<Release> listarReleases(Projeto projeto) {
-		Session session = HibernateUtil.getSession();
+	return casoDeTeste;
+    }
 
-		List<Release> releases = session.createQuery("from Release where projeto = :p").setEntity("p", projeto).list();
-		for (Release release : releases) {
-			System.out.println(release);
-		}
-		session.close();
+    List<CasoDeTeste> listarCasosDeTeste(Projeto projeto) {
+	Session session = HibernateUtil.getSession();
+	List<CasoDeTeste> casosDeTeste = session.createQuery("from CasoDeTeste where projeto = :p")
+		.setEntity("p", projeto).list();
 
-		return releases;
+	for (CasoDeTeste caso : casosDeTeste) {
+	    System.out.println(caso);
 	}
 
-	void incluirReleases(Projeto projeto) {
-		Date dataInicial = new LocalDate(2014, 2, 1).toDate();
-		Date dataFinal = new LocalDate(2014, 2, 21).toDate();
-		incluiRelease(projeto, "Sprint 01", "Sprint com funcionalidades do módulo extrajudicial.", dataInicial,
-				dataFinal);
-		dataInicial = new LocalDate(dataInicial).plusWeeks(4).toDate();
-		dataFinal = new LocalDate(dataFinal).plusWeeks(4).toDate();
-		incluiRelease(projeto, "Sprint 02", "Sprint com funcionalidades do módulo judicial.", dataInicial, dataFinal);
-		dataInicial = new LocalDate(dataInicial).plusWeeks(4).toDate();
-		dataFinal = new LocalDate(dataFinal).plusWeeks(4).toDate();
-		incluiRelease(projeto, "Sprint 03", "Sprint com as seguintes funcionalidades: visibilidade, designação.",
-				dataInicial, dataFinal);
+	session.close();
+	return casosDeTeste;
+    }
+
+    List<ExecucaoTeste> listarExecucoes(Release release) {
+	Session session = HibernateUtil.getSession();
+	List<ExecucaoTeste> execucoes = session.createQuery("from ExecucaoTeste where release = :release ")
+		.setEntity("release", release).list();
+	return execucoes;
+    }
+
+    void incluirExecucoes(Release release) {
+	List<SuiteDeTeste> suites = listarSuitesDeTeste(release.getProjeto());
+	incluirExecucao(release, suites);
+    }
+
+    void incluirExecucao(Release release, List<SuiteDeTeste> suites) {
+	ExecucaoTeste execucao = new ExecucaoTeste();
+	execucao.setNome("Teste do Sprint 01");
+	execucao.setRelease(release);
+	execucao.setSuites(suites);
+
+	Session session = HibernateUtil.getSession();
+	Transaction transaction = session.beginTransaction();
+	try {
+	    session.save(execucao);
+	    transaction.commit();
+	} catch (Exception e) {
+	    e.printStackTrace();
+	    transaction.rollback();
+	} finally {
+	    session.close();
 	}
-
-	Release incluiRelease(Projeto projeto, String nome, String descricao, Date dataInicial, Date dataFinal) {
-		Release release = new Release();
-		release.setNome(nome);
-		release.setDescricao(descricao);
-		release.setProjeto(projeto);
-		release.setDataInicial(dataInicial);
-		release.setDataFinal(dataFinal);
-
-		Session session = HibernateUtil.getSession();
-		Transaction transaction = session.beginTransaction();
-		try {
-			session.save(release);
-			transaction.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			transaction.rollback();
-		} finally {
-			session.close();
-		}
-
-		return release;
-	}
-
-	Release getRelease(Long id) {
-		Session session = HibernateUtil.getSession();
-		Release release = (Release) session.get(Release.class, id);
-		session.close();
-
-		return release;
-	}
-
-	private void incluirHistorias(Release release) {
-		incluiHistoria(release, "Conclusão em lote de extrajudiciais",
-				"Como um usuário, eu quero consultar procedimentos extrajudiciais e poder concluí-los em conjunto.");
-		incluiHistoria(release, "Modificar o status do Procedimento quando houver um desapensamento",
-				"Como um usuário do Sistema Único, quando eu efetuar o desapensamento de um procedimento de outro procedimento o status daquele deve ser modificado para 'FINALIZADO'.");
-		incluiHistoria(release, "Impresssão da pauta de sessão segundo o formato e parâmetros escolhidos",
-				"Como um usuário do Sistema Único, eu quero escolher parâmetros e formato do relatório da pauta de sessão e o sistema deve gerar o relatório segundo essas escolhas.");
-		incluiHistoria(release, "Envelopamento em lote de procedimentos de uma sessão do Colegiado",
-				"Como um usuário do Sistema Único, eu quero escolher os procedimentos de uma sessão do meu Colegiado e poder envelopá-los em conjunto.");
-	}
-
-	private Historia incluiHistoria(Release release, String nome, String descricao) {
-		Historia historia = new Historia(release, nome, descricao);
-		Session session = HibernateUtil.getSession();
-		Transaction transaction = session.beginTransaction();
-		try {
-			session.save(historia);
-			transaction.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			transaction.rollback();
-		} finally {
-			session.close();
-		}
-		return historia;
-	}
-
-	List<Historia> listarHistorias(Release release) {
-		Session session = HibernateUtil.getSession();
-
-		List<Historia> historias = session.createQuery("from Historia where release = :release")
-				.setEntity("release", release).list();
-		for (Historia historia : historias) {
-			System.out.println(historia);
-		}
-		session.close();
-
-		return historias;
-	}
-
-	void incluirCasosDeTeste(Projeto projeto) {
-		incluiCasoDeTeste(projeto, "CT01 - Conclusão em Lote - Conclusão realizada com sucesso",
-				"Um usuário autenticado deve ser capaz de concluir procedimentos em lote.",
-				"O usuário deve estar autenticado no sistema, ter acesso à funcionalidade e "
-						+ "devem existir procedimentos distribuídos para o grupo de distribuição e ofícios selecionados.\n"
-						+ "Devem existir procedimentos localizados no setor do usuário entre as datas de recebimento selecionadas.\n"
-						+ "O usuário deve utilizar um navegador suportado.",
-				"1. Entre no menu Procedimento Extrajudicial/Adm > Concluir Procedimentos em Lote.\n"
-						+ "2. Escolha um grupo de distribuição e um ofício.\n"
-						+ "3. Escolha a data inicial e final de recebimento.\n" + "4. Clique no botão 'Consultar'.\n"
-						+ "5. Selecione todos os procedimentos retornados na consulta.\n"
-						+ "6. Clique no botão 'Concluir'.",
-				"Os procedimentos devem ser conclusos/movimentados e o sistema deve avisar um a um o destino da conclusão.",
-				TipoTeste.FUNCIONAL);
-
-		incluiCasoDeTeste(projeto,
-				"CT02 - Status do Procedimento modificado para finalizado quando houver um desapensamento",
-				"O sistema deve modificar o status do procedimento para FINALIZADO quando este for desapensado.",
-				"O usuário deve estar autenticado no sistema, ter acesso à funcionalidade e "
-						+ "o procedimento escolhido deve ser apenso de um outro procedimento.\n"
-						+ "O procedimento escolhido deve estar localizado no setor do usuário.\n"
-						+ "O usuário deve utilizar um navegador suportado.",
-				"1. Escolha o procedimento principal do apenso em questão.\n" + "2. Acesse a aba Referências.\n"
-						+ "3. Na lista de referências, escolha a linha em que aparece o procedimento apenso em questão.\n"
-						+ "5. Clique no botão 'Finalizar referencia'.",
-				"Acesse o procedimento apenso. Onde é exibido o Status deve estar escrito 'FINALIZADO'.",
-				TipoTeste.FUNCIONAL);
-
-	}
-
-	CasoDeTeste incluiCasoDeTeste(Projeto projeto, String nome, String descricao, String preCondicoes, String passos,
-			String resultadosEsperados, TipoTeste tipo) {
-		CasoDeTeste casoDeTeste = new CasoDeTeste();
-		casoDeTeste.setProjeto(projeto);
-		casoDeTeste.setNome(nome);
-		casoDeTeste.setDescricao(descricao);
-		casoDeTeste.setPreCondicoes(preCondicoes);
-		casoDeTeste.setPassos(passos);
-		casoDeTeste.setResultadoEsperado(resultadosEsperados);
-		casoDeTeste.setTipo(tipo);
-
-		Session session = HibernateUtil.getSession();
-		Transaction transaction = session.beginTransaction();
-		try {
-			session.save(casoDeTeste);
-			transaction.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			transaction.rollback();
-		} finally {
-			session.close();
-		}
-
-		return casoDeTeste;
-	}
-
-	List<CasoDeTeste> listarCasosDeTeste(Projeto projeto) {
-		Session session = HibernateUtil.getSession();
-		List<CasoDeTeste> casosDeTeste = session.createQuery("from CasoDeTeste where projeto = :p")
-				.setEntity("p", projeto).list();
-
-		for (CasoDeTeste caso : casosDeTeste) {
-			System.out.println(caso);
-		}
-
-		session.close();
-		return casosDeTeste;
-	}
-
-	List<ExecucaoTeste> listarExecucoes(Release release) {
-		Session session = HibernateUtil.getSession();
-		List<ExecucaoTeste> execucoes = session.createQuery("from ExecucaoTeste where release = :release ")
-				.setEntity("release", release).list();
-		return execucoes;
-	}
-
-	void incluirExecucoes(Release release) {
-		List<SuiteDeTeste> suites = listarSuitesDeTeste(release.getProjeto());
-		incluirExecucao(release, new HashSet<>(suites));
-	}
-
-	void incluirExecucao(Release release, Set<SuiteDeTeste> suites) {
-		ExecucaoTeste execucao = new ExecucaoTeste();
-		execucao.setNome("Teste do Sprint 01");
-		execucao.setRelease(release);
-		execucao.setSuites(suites);
-
-		Session session = HibernateUtil.getSession();
-		Transaction transaction = session.beginTransaction();
-		try {
-			session.save(execucao);
-			transaction.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-			transaction.rollback();
-		} finally {
-			session.close();
-		}
-	}
+    }
 
 }
