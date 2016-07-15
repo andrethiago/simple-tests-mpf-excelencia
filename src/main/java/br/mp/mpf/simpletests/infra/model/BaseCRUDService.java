@@ -20,6 +20,7 @@ public class BaseCRUDService<E extends Object> {
 	session.delete(entidade);
     }
 
+    @SuppressWarnings("unchecked")
     public E consultarPorId(Class<E> clazz, Long id) {
 	return (E) session.get(clazz, id);
     }

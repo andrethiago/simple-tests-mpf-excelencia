@@ -14,4 +14,8 @@ public class UsuarioService extends BaseCRUDService<Usuario> {
 	return repository.consultarTodos();
     }
 
+    public Usuario consultarPorEmail(String email) {
+	return repository.consultarPorEmail(email);
+    }
+
 }

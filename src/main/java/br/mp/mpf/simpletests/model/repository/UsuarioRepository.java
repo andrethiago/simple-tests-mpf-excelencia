@@ -22,4 +22,10 @@ public class UsuarioRepository {
 	return query.list();
     }
 
+    public Usuario consultarPorEmail(String email) {
+	Query query = session.createQuery("from Usuario where email = :email");
+	query.setParameter("email", email);
+	return (Usuario) query.uniqueResult();
+    }
+
 }
