@@ -10,6 +10,11 @@ public class ReleaseService extends BaseCRUDService<Release> {
 
     private ReleaseRepository repository;
 
+    public ReleaseService(ReleaseRepository repository) {
+	super();
+	this.repository = repository;
+    }
+
     public List<Release> consultarTodos() {
 	return repository.consultarTodos();
     }

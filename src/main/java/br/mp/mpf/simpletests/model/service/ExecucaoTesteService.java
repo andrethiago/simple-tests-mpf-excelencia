@@ -10,6 +10,11 @@ public class ExecucaoTesteService extends BaseCRUDService<ExecucaoTeste> {
 
     private ExecucaoTesteRepository repository;
 
+    public ExecucaoTesteService(ExecucaoTesteRepository repository) {
+	super();
+	this.repository = repository;
+    }
+
     public List<ExecucaoTeste> consultarTodos() {
 	return repository.consultarTodos();
     }

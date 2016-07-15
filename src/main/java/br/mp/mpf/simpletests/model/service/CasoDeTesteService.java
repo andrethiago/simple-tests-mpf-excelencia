@@ -10,6 +10,11 @@ public class CasoDeTesteService extends BaseCRUDService<CasoDeTeste> {
 
     private CasoDeTesteRepository repository;
 
+    public CasoDeTesteService(CasoDeTesteRepository repository) {
+	super();
+	this.repository = repository;
+    }
+
     public List<CasoDeTeste> consultarTodos() {
 	return repository.consultarTodos();
     }

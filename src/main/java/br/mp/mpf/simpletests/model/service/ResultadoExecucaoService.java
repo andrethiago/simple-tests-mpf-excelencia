@@ -10,6 +10,11 @@ public class ResultadoExecucaoService extends BaseCRUDService<ResultadoExecucaoT
 
     private ResultadoExecucaoTesteRepository repository;
 
+    public ResultadoExecucaoService(ResultadoExecucaoTesteRepository repository) {
+	super();
+	this.repository = repository;
+    }
+
     public List<ResultadoExecucaoTeste> consultarTodos() {
 	return repository.consultarTodos();
     }

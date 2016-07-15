@@ -10,6 +10,11 @@ public class DefeitoService extends BaseCRUDService<Defeito> {
 
     private DefeitoRepository repository;
 
+    public DefeitoService(DefeitoRepository repository) {
+	super();
+	this.repository = repository;
+    }
+
     public List<Defeito> consultarTodos() {
 	return repository.consultarTodos();
     }

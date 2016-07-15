@@ -10,6 +10,11 @@ public class HistoriaService extends BaseCRUDService<Historia> {
 
     private HistoriaRepository repository;
 
+    public HistoriaService(HistoriaRepository repository) {
+	super();
+	this.repository = repository;
+    }
+
     public List<Historia> consultarTodos() {
 	return repository.consultarTodos();
     }

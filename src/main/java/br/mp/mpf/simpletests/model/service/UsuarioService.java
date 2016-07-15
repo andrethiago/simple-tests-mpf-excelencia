@@ -10,6 +10,11 @@ public class UsuarioService extends BaseCRUDService<Usuario> {
 
     private UsuarioRepository repository;
 
+    public UsuarioService(UsuarioRepository repository) {
+	super();
+	this.repository = repository;
+    }
+
     public List<Usuario> consultarTodos() {
 	return repository.consultarTodos();
     }

@@ -10,6 +10,11 @@ public class ProjetoService extends BaseCRUDService<Projeto> {
 
     private ProjetoRepository repository;
 
+    public ProjetoService(ProjetoRepository repository) {
+	super();
+	this.repository = repository;
+    }
+
     public List<Projeto> consultarTodos() {
 	return repository.consultarTodos();
     }

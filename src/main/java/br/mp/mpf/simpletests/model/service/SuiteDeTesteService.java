@@ -10,6 +10,11 @@ public class SuiteDeTesteService extends BaseCRUDService<SuiteDeTeste> {
 
     private SuiteDeTesteRepository repository;
 
+    public SuiteDeTesteService(SuiteDeTesteRepository repository) {
+	super();
+	this.repository = repository;
+    }
+
     public List<SuiteDeTeste> consultarTodos() {
 	return repository.consultarTodos();
     }
