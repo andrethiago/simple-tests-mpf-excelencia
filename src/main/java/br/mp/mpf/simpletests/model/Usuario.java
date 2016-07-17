@@ -8,9 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "USUARIO")
 @SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_USUARIO", allocationSize = 1)
+// @JsonIgnoreProperties(value = { "senha" })
 public class Usuario {
 
     @Id
@@ -25,6 +28,7 @@ public class Usuario {
     private String email;
 
     @Column(name = "SENHA", nullable = false, length = 500)
+    @JsonIgnore
     private String senha;
 
     public Long getId() {
