@@ -17,4 +17,11 @@ public class ProjetoRepository extends BaseCRUDRepository<Projeto> {
 	return query.list();
     }
 
+    @SuppressWarnings("unchecked")
+    public List<Projeto> consultarPorNome(String nome) {
+	Query query = getSession().createQuery("from Projeto where lower(nome) like '%' || lower(:nome) || '%' ");
+	query.setParameter("nome", nome);
+	return query.list();
+    }
+
 }

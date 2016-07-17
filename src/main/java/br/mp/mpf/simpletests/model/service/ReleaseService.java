@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.mp.mpf.simpletests.model.Projeto;
 import br.mp.mpf.simpletests.model.Release;
 import br.mp.mpf.simpletests.model.repository.ReleaseRepository;
 
@@ -41,6 +42,10 @@ public class ReleaseService {
 
     public List<Release> consultarTodos() {
 	return repository.consultarTodos();
+    }
+
+    public List<Release> consultarPorProjeto(Projeto projeto) {
+	return repository.consultarPorProjeto(projeto);
     }
 
 }

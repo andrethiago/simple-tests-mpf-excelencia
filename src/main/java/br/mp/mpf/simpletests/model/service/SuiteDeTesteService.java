@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.mp.mpf.simpletests.model.Projeto;
 import br.mp.mpf.simpletests.model.SuiteDeTeste;
 import br.mp.mpf.simpletests.model.repository.SuiteDeTesteRepository;
 
@@ -41,6 +42,10 @@ public class SuiteDeTesteService {
 
     public List<SuiteDeTeste> consultarTodos() {
 	return repository.consultarTodos();
+    }
+
+    public List<SuiteDeTeste> consultarPorProjeto(Projeto projeto) {
+	return repository.consultarPorProjeto(projeto);
     }
 
 }

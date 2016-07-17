@@ -40,7 +40,7 @@ public class SuiteDeTeste {
     @Column(name = "DESCRICAO", nullable = true, length = 4000)
     private String descricao;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_PROJETO", nullable = false)
     private Projeto projeto;
 

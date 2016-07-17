@@ -8,29 +8,35 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.mp.mpf.simpletests.model.Usuario;
-import br.mp.mpf.simpletests.model.service.UsuarioService;
+import br.mp.mpf.simpletests.model.Projeto;
+import br.mp.mpf.simpletests.model.service.ProjetoService;
 
 @Controller
-@RequestMapping("/usuarios")
-public class UsuariosController {
+@RequestMapping("/projetos")
+public class ProjetosController {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private ProjetoService projetoService;
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public List<Usuario> usuarios() {
-	return usuarioService.consultarTodos();
+    public List<Projeto> projetos() {
+	return projetoService.consultarTodos();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public Usuario porId(@PathVariable Long id) {
-	// TODO tratar o id inexistente
-	return usuarioService.consultarPorId(id);
+    public Projeto porId(@PathVariable Long id) {
+	return projetoService.consultarPorId(id);
+    }
+
+    @RequestMapping(params = { "nome" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public List<Projeto> porNome(@RequestParam("nome") String nome) {
+	return projetoService.consultarPorNome(nome);
     }
 
 }

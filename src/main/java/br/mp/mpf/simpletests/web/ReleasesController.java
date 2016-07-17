@@ -10,27 +10,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.mp.mpf.simpletests.model.Usuario;
-import br.mp.mpf.simpletests.model.service.UsuarioService;
+import br.mp.mpf.simpletests.model.Projeto;
+import br.mp.mpf.simpletests.model.Release;
+import br.mp.mpf.simpletests.model.service.ReleaseService;
 
 @Controller
-@RequestMapping("/usuarios")
-public class UsuariosController {
+@RequestMapping("/projetos/{id}/releases")
+public class ReleasesController {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private ReleaseService releaseService;
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public List<Usuario> usuarios() {
-	return usuarioService.consultarTodos();
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @ResponseBody
-    public Usuario porId(@PathVariable Long id) {
-	// TODO tratar o id inexistente
-	return usuarioService.consultarPorId(id);
+    public List<Release> releasePorProjeto(@PathVariable(value = "id") Long idProjeto) {
+	Projeto projeto = new Projeto();
+	projeto.setId(idProjeto);
+	return releaseService.consultarPorProjeto(projeto);
     }
 
 }

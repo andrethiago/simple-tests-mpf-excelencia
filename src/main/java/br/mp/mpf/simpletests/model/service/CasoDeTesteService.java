@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.mp.mpf.simpletests.model.CasoDeTeste;
+import br.mp.mpf.simpletests.model.Projeto;
 import br.mp.mpf.simpletests.model.repository.CasoDeTesteRepository;
 
 @Service
@@ -41,6 +42,10 @@ public class CasoDeTesteService {
 
     public List<CasoDeTeste> consultarTodos() {
 	return repository.consultarTodos();
+    }
+
+    public List<CasoDeTeste> consultarPorProjeto(Projeto projeto) {
+	return repository.consultarPorProjeto(projeto);
     }
 
 }

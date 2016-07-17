@@ -43,4 +43,8 @@ public class ProjetoService {
 	return repository.consultarTodos();
     }
 
+    public List<Projeto> consultarPorNome(String nome) {
+	return repository.consultarPorNome(nome);
+    }
+
 }
