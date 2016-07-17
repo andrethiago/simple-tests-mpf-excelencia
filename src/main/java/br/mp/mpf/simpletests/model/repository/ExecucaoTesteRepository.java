@@ -3,21 +3,17 @@ package br.mp.mpf.simpletests.model.repository;
 import java.util.List;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
 import br.mp.mpf.simpletests.infra.model.BaseCRUDRepository;
 import br.mp.mpf.simpletests.model.ExecucaoTeste;
 
+@Repository
 public class ExecucaoTesteRepository extends BaseCRUDRepository<ExecucaoTeste> {
-
-    public ExecucaoTesteRepository(Session session) {
-	super();
-	this.session = session;
-    }
 
     @SuppressWarnings("unchecked")
     public List<ExecucaoTeste> consultarTodos() {
-	Query query = session.createQuery("from ExecucaoTeste");
+	Query query = getSession().createQuery("from ExecucaoTeste");
 	return query.list();
     }
 

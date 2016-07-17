@@ -2,13 +2,18 @@ package br.mp.mpf.simpletests.model.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import br.mp.mpf.simpletests.model.SuiteDeTeste;
 import br.mp.mpf.simpletests.model.repository.SuiteDeTesteRepository;
 
+@Service
 public class SuiteDeTesteService {
 
     private SuiteDeTesteRepository repository;
 
+    @Autowired
     public SuiteDeTesteService(SuiteDeTesteRepository repository) {
 	super();
 	this.repository = repository;

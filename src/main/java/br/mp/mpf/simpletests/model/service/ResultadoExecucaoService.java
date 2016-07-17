@@ -2,13 +2,18 @@ package br.mp.mpf.simpletests.model.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import br.mp.mpf.simpletests.model.ResultadoExecucaoTeste;
 import br.mp.mpf.simpletests.model.repository.ResultadoExecucaoTesteRepository;
 
+@Service
 public class ResultadoExecucaoService {
 
     private ResultadoExecucaoTesteRepository repository;
 
+    @Autowired
     public ResultadoExecucaoService(ResultadoExecucaoTesteRepository repository) {
 	super();
 	this.repository = repository;

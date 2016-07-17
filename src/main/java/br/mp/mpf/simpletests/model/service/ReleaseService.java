@@ -2,13 +2,18 @@ package br.mp.mpf.simpletests.model.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import br.mp.mpf.simpletests.model.Release;
 import br.mp.mpf.simpletests.model.repository.ReleaseRepository;
 
+@Service
 public class ReleaseService {
 
     private ReleaseRepository repository;
 
+    @Autowired
     public ReleaseService(ReleaseRepository repository) {
 	super();
 	this.repository = repository;
