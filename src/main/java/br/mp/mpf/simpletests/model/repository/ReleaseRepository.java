@@ -5,11 +5,10 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import br.mp.mpf.simpletests.infra.model.BaseCRUDRepository;
 import br.mp.mpf.simpletests.model.Release;
 
-public class ReleaseRepository {
-
-    Session session;
+public class ReleaseRepository extends BaseCRUDRepository<Release> {
 
     public ReleaseRepository(Session session) {
 	super();

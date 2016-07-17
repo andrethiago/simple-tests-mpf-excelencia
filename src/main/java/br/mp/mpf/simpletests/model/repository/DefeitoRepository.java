@@ -5,11 +5,10 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import br.mp.mpf.simpletests.infra.model.BaseCRUDRepository;
 import br.mp.mpf.simpletests.model.Defeito;
 
-public class DefeitoRepository {
-
-    Session session;
+public class DefeitoRepository extends BaseCRUDRepository<Defeito> {
 
     public DefeitoRepository(Session session) {
 	super();
