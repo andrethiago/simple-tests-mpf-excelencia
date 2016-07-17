@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.mp.mpf.simpletests.model.Projeto;
 import br.mp.mpf.simpletests.model.repository.ProjetoRepository;
@@ -19,14 +20,17 @@ public class ProjetoService {
 	this.repository = repository;
     }
 
+    @Transactional
     public Projeto incluir(Projeto entidade) {
 	return repository.incluir(entidade);
     }
 
+    @Transactional
     public Projeto alterar(Projeto entidade) {
 	return repository.alterar(entidade);
     }
 
+    @Transactional
     public void excluir(Projeto entidade) {
 	repository.excluir(entidade);
     }

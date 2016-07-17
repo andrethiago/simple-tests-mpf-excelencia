@@ -18,12 +18,25 @@ public class ExemploUsoServicosRepositoriosComSpring {
 	UsuarioService usuarioService = ctx.getBean(UsuarioService.class);
 	List<Usuario> usuarios = usuarioService.consultarTodos();
 
-	for (Usuario usuario : usuarios) {
-	    System.out.println(usuario);
-	}
+	imprimir(usuarios);
+
+	Usuario usuario = new Usuario();
+	usuario.setNome("André");
+	usuario.setEmail("andrethiago@mpf.mp.br");
+	usuario.setSenha("123456");
+
+	// usuarioService.incluir(usuario);
+
+	// imprimir(usuarioService.consultarTodos());
 
 	System.exit(0);
 
+    }
+
+    private static void imprimir(List<Usuario> usuarios) {
+	for (Usuario usuario : usuarios) {
+	    System.out.println(usuario);
+	}
     }
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.mp.mpf.simpletests.model.Usuario;
 import br.mp.mpf.simpletests.model.repository.UsuarioRepository;
@@ -19,16 +20,19 @@ public class UsuarioService {
 	this.repository = repository;
     }
 
+    @Transactional
     public Usuario incluir(Usuario usuario) {
 	repository.incluir(usuario);
 	return usuario;
     }
 
+    @Transactional
     public Usuario alterar(Usuario usuario) {
 	repository.alterar(usuario);
 	return usuario;
     }
 
+    @Transactional
     public void excluir(Usuario usuario) {
 	repository.excluir(usuario);
     }

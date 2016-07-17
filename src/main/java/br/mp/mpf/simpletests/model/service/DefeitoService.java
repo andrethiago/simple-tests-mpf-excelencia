@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.mp.mpf.simpletests.model.Defeito;
 import br.mp.mpf.simpletests.model.repository.DefeitoRepository;
@@ -19,14 +20,17 @@ public class DefeitoService {
 	this.repository = repository;
     }
 
+    @Transactional
     public Defeito incluir(Defeito entidade) {
 	return repository.incluir(entidade);
     }
 
+    @Transactional
     public Defeito alterar(Defeito entidade) {
 	return repository.alterar(entidade);
     }
 
+    @Transactional
     public void excluir(Defeito entidade) {
 	repository.excluir(entidade);
     }

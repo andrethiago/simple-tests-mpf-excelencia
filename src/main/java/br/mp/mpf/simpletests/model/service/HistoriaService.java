@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.mp.mpf.simpletests.model.Historia;
 import br.mp.mpf.simpletests.model.repository.HistoriaRepository;
@@ -19,14 +20,17 @@ public class HistoriaService {
 	this.repository = repository;
     }
 
+    @Transactional
     public Historia incluir(Historia entidade) {
 	return repository.incluir(entidade);
     }
 
+    @Transactional
     public Historia alterar(Historia entidade) {
 	return repository.alterar(entidade);
     }
 
+    @Transactional
     public void excluir(Historia entidade) {
 	repository.excluir(entidade);
     }
