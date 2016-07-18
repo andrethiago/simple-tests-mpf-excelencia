@@ -1,7 +1,5 @@
 package br.mp.mpf.simpletests.web;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -10,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import br.mp.mpf.simpletests.infra.web.Resultado;
 import br.mp.mpf.simpletests.model.Projeto;
-import br.mp.mpf.simpletests.model.Release;
 import br.mp.mpf.simpletests.model.service.ReleaseService;
 
 @Controller
@@ -23,10 +21,10 @@ public class ReleasesController {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public List<Release> releasePorProjeto(@PathVariable(value = "id") Long idProjeto) {
+    public Resultado releasePorProjeto(@PathVariable(value = "id") Long idProjeto) {
 	Projeto projeto = new Projeto();
 	projeto.setId(idProjeto);
-	return releaseService.consultarPorProjeto(projeto);
+	return new Resultado(releaseService.consultarPorProjeto(projeto));
     }
 
 }
