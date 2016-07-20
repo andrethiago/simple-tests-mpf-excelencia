@@ -1,14 +1,11 @@
 # simple-tests
 Aplicação de exemplo para o curso Spring MVC  + AngularJS ministrado no MPF.
 
-Aula 03:
+Aula 04:
 
-* Spring MVC
-  * configuração básica
-  * configuração web.xml do Spring
-  * mapeamentos de requisições GET com @RequestMapping
-  * mapeamentos GET com @PathVariable e @RequestParam
-  * mapeamentos de retorno/consumo de JSON
-  * exemplos de PUT, POST e DELETE
-  * tratamentos de exceções
-
+* Angular JS/Bootstrap
+  * angular.module
+  * diretiva ng-app
+  * Controller e diretiva ng-controller
+  * $scope e 2-way data-binding
+  * Utilizando classes do Bootstrap para melhorar o visual de nossa aplicação
