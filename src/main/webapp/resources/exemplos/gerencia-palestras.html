@@ -9,6 +9,20 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="../css/bootstrap-theme.css">
 
+<style type="text/css">
+
+	div.container {
+		margin-left: auto;
+		margin-right: auto;
+		width: 600px;
+	}
+
+	.form-control {
+		margin-bottom: 10px;
+	}
+
+</style>
+
 <script src="../js/jquery-2.1.4.js"></script>
 <script src="../js/bootstrap.js"></script>
 <script src="../js/angular.js"></script>
@@ -19,27 +33,41 @@
 	app.controller("GerenciaPalestrasController", function($scope) {
 		$scope.titulo = "Gerenciamento de Palestras"
 
-		$scope.palestras = [ {
-			"id" : 1,
-			"titulo" : "Conhecendo Angular JS",
-			"autor" : "André Thiago"
-		}, {
-			"id" : 2,
-			"titulo" : "Apresentando Spring MVC",
-			"autor" : "Roy Johnson"
-		}, {
-			"id" : 3,
-			"titulo" : "Mapeamento ORM com Hibernate",
-			"autor" : "Gavin King"
-		}, {
-			"id" : 4,
-			"titulo" : "Modelando com base em DDD",
-			"autor" : "Eric Evans"
-		}, {
-			"id" : 5,
-			"titulo" : "Microservice Patterns",
-			"autor" : "Martin Fowler"
-		} ];
+		$scope.palestras = [ 
+		                     
+			{
+				"id" : 1,
+				"nome" : "Conhecendo Angular JS",
+				"autor" : "André Thiago"
+			}, 
+			{
+				"id" : 2,
+				"nome" : "Apresentando Spring MVC",
+				"autor" : "Roy Johnson"
+			}, 
+			{
+				"id" : 3,
+				"nome" : "Mapeamento ORM com Hibernate",
+				"autor" : "Gavin King"
+			}, 
+			{
+				"id" : 4,
+				"nome" : "Modelando com base em DDD",
+				"autor" : "Eric Evans"
+			}, 
+			{
+				"id" : 5,
+				"nome" : "Microservice Patterns",
+				"autor" : "Martin Fowler"
+			} 
+		];
+		
+		$scope.adicionarPalestra = function(palestra) {
+			//$scope.palestras.push({"nome": $scope.nome, "autor": $scope.autor}); <-- Evitar ler do $scope no controller: além de ficar menos claro, dificulta a elaboração de testes de unidade
+			//$scope.palestras.push({"nome": nome, "autor": autor});
+			$scope.palestras.push(palestra);
+			delete $scope.palestra;
+		}
 	});
 </script>
 
@@ -56,15 +84,22 @@
 
 		<table class="table table-hover">
 			<tr>
-				<th>Título</th>
+				<th>Nome</th>
 				<th>Autor</th>
 			</tr>
 			<tr ng-repeat="palestra in palestras">
-				<td>{{palestra.titulo}}</td>
+				<td>{{palestra.nome}}</td>
 				<td>{{palestra.autor}}</td>
 			</tr>
 		</table>
-
+		
+		<hr/>
+		
+		<input class="form-control" type="text" ng-model="palestra.nome" placeholder="Título da Palestra" />
+		<input class="form-control" type="text" ng-model="palestra.autor" placeholder="Autor da Palestra" />
+		
+		<button class="btn btn-primary btn-block" ng-click="adicionarPalestra(palestra)">Adicionar Palestra</button>
+		
 	</div>
 
 
