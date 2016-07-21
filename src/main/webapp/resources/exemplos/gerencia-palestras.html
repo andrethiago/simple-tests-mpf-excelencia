@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="GerenciaPalestras">
+<head>
+<meta charset="UTF-8">
+<title>Gerência de Palestras</title>
+
+<script src="../js/angular.js"></script>
+
+<script type="text/javascript">
+
+	var app = angular.module("GerenciaPalestras", []);
+	
+	app.controller("GerenciaPalestrasController", function($scope) {
+		$scope.titulo = "Gerenciamento de Palestras"
+		
+		$scope.palestras = [
+			{"id": 1, "titulo": "Conhecendo Angular JS", "autor": "André Thiago"},
+			{"id": 2, "titulo": "Apresentando Spring MVC", "autor": "Roy Johnson"},
+			{"id": 3, "titulo": "Mapeamento ORM com Hibernate", "autor": "Gavin King"},
+			{"id": 4, "titulo": "Modelando com base em DDD", "autor": "Eric Evans"},
+			{"id": 5, "titulo": "Microservice Patterns", "autor": "Martin Fowler"}
+		];
+	});
+
+</script>
+
+
+</head>
+<body ng-controller="GerenciaPalestrasController">
+
+<!-- 	<h1 ng-bind="titulo"></h1> -->
+	<h1>{{titulo}}</h1>
+	
+	<table>
+		<tr>
+			<th>Título</th>
+			<th>Autor</th>
+		</tr>
+		<tr ng-repeat="palestra in palestras">
+			<td>{{palestra.titulo}}</td>
+			<td>{{palestra.autor}}</td>
+		</tr>
+	</table>
+
+</body>
+</html>
