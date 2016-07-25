@@ -29,7 +29,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+	registry.addResourceHandler("/resources/**", "/app/**").addResourceLocations("/resources/", "/app/");
     }
 
     @Bean
