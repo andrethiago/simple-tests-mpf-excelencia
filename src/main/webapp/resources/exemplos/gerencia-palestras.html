@@ -92,11 +92,13 @@
 
 		<table class="table table-hover">
 			<tr>
+				<th>#</th>
 				<th></th>
 				<th>Nome</th>
 				<th>Autor</th>
 			</tr>
 			<tr ng-class="{warning : palestra.selecionada}" ng-repeat="palestra in palestras">
+				<th>{{$index + 1}}</th>
 				<th><input type="checkbox" ng-model="palestra.selecionada" /></th>
 				<td>{{palestra.nome}}</td>
 				<td>{{palestra.autor}}</td>
@@ -109,7 +111,7 @@
 		<input class="form-control" type="text" ng-model="palestra.autor" placeholder="Autor da Palestra" />
 		
 		<button class="btn btn-primary btn-block" ng-click="adicionarPalestra(palestra)" ng-disabled="!palestra.nome || !palestra.autor">Adicionar Palestra</button>
-		<button class="btn btn-danger btn-block" ng-show="temPalestraSelecionada()" >Apagar Palestra</button>
+		<button class="btn btn-danger btn-block" ng-hide="!temPalestraSelecionada()" >Apagar Palestra</button>
 		
 	
 		<div ng-include="'rodape.html'"></div>
