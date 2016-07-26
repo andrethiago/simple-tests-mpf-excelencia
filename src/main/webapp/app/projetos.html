@@ -27,32 +27,32 @@
 	  <strong>Mensagem</strong> {{mensagemSucesso}}
 	</div>
 	
-	<div class="panel panel-primary">
-		<div class="panel-heading">Novo projeto</div>
-		<div class="panel-body">
-			<form class="form-horizontal">
-				<div class="form-group">
-					<label for="nome" class="col-sm-2 control-label">Nome</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="nome" ng-model="projeto.nome" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="email" class="col-sm-2 control-label">Descrição</label>
-					<div class="col-sm-10">
-						<textarea type="text" class="form-control" id="email" ng-model="projeto.descricao" >
-						</textarea>
-					</div>
-				</div>
+<!-- 	<div class="panel panel-primary"> -->
+<!-- 		<div class="panel-heading">Novo projeto</div> -->
+<!-- 		<div class="panel-body"> -->
+<!-- 			<form class="form-horizontal"> -->
+<!-- 				<div class="form-group"> -->
+<!-- 					<label for="nome" class="col-sm-2 control-label">Nome</label> -->
+<!-- 					<div class="col-sm-10"> -->
+<!-- 						<input type="text" class="form-control" id="nome" ng-model="projeto.nome" /> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="form-group"> -->
+<!-- 					<label for="email" class="col-sm-2 control-label">Descrição</label> -->
+<!-- 					<div class="col-sm-10"> -->
+<!-- 						<textarea type="text" class="form-control" id="email" ng-model="projeto.descricao" > -->
+<!-- 						</textarea> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
 				
-				<div class="form-group">
-				  <div class="col-sm-offset-2 col-sm-10">
-				    <button type="button" class="btn btn-primary" ng-click="incluirProjeto(projeto)">Incluir</button>
-				  </div>
-				</div>
-			</form>
-		</div>
-	</div>
+<!-- 				<div class="form-group"> -->
+<!-- 				  <div class="col-sm-offset-2 col-sm-10"> -->
+<!-- 				    <button type="button" class="btn btn-primary" ng-click="incluirProjeto(projeto)">Incluir</button> -->
+<!-- 				  </div> -->
+<!-- 				</div> -->
+<!-- 			</form> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 
 	<div class="panel panel-primary">
 		<div class="panel-heading">Projetos existentes</div>
@@ -67,15 +67,18 @@
 				<tr ng-repeat="projeto in projetos">
 					<td>{{$index + 1}}</td>
 					<th><input type="checkbox" ng-model="projeto.selecionado" /></th>
-					<td><a ng-click="selecionarProjeto(projeto.id)">{{projeto.nome}}</a></td>
+					<td><a href="/simpletests/app/projetos/{{projeto.id}}">{{projeto.nome}}</a></td>
 					<td>{{projeto.descricao}}</td>
 				</tr>
 			</table>
 		</div>
 	</div>
+
+
 	
-	
-	<div ng-include="detalharProjeto.html"></div>
+
+
+		<div ng-include="detalharProjeto.html"></div>
 
 
 </div>
