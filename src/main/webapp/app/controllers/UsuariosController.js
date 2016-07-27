@@ -2,14 +2,45 @@ angular.module('simpleTests').controller('UsuariosController', function($scope, 
 	
 	$scope.usuarios = [];
 	$scope.mensagemSucesso = null;
+	$scope.mensagemAviso = null;
 	$scope.mensagemErro = null;
+	$scope.exibeFormulario = false;
 	
-	$scope.incluirUsuario = function(usuario) {
-		$http.put('http://localhost:8080/simpletests/usuarios', usuario).success(function(data) {
-			$scope.usuario = {};
-			$scope.mensagemSucesso = data.mensagem;
-			carregarUsuarios();
-		});
+	$scope.exibirFormulario = function(usuario) {
+		$scope.exibeFormulario = true;
+		$scope.usuario = angular.copy(usuario);
+	};
+	
+	$scope.escondeFormulario = function() {
+		$scope.exibeFormulario = false;
+	};
+	
+	$scope.salvarUsuario = function(usuario) {
+		
+		if(!usuario.id) {
+			$http.put('http://localhost:8080/simpletests/usuarios', usuario).success(function(data) {
+				if(data.sucesso) {
+					$scope.usuario = {};
+					$scope.mensagemSucesso = data.mensagem;
+					$scope.escondeFormulario();
+					carregarUsuarios();
+				} else {
+					$scope.mensagemAviso = data.erro.mensagem;
+				}
+			});
+		} else {
+			$http.post('http://localhost:8080/simpletests/usuarios', usuario).success(function(data) {
+				if(data.sucesso) {
+					$scope.usuario = {};
+					$scope.mensagemSucesso = data.mensagem;
+					$scope.escondeFormulario();
+					carregarUsuarios();
+				} else {
+					$scope.mensagemAviso = data.erro.mensagem;
+				}
+			});
+		}
+		
 	};
 	
 	$scope.excluirUsuario = function(usuario) {

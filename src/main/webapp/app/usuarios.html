@@ -27,6 +27,11 @@
 	  <strong>Mensagem</strong> {{mensagemSucesso}}
 	</div>
 	
+	<div class="alert alert-warning alert-dismissible" role="alert" ng-if="mensagemAviso">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>Atenção</strong> {{mensagemAviso}}
+	</div>
+	
 	<div class="alert alert-danger alert-dismissible" role="alert" ng-if="mensagemErro">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	  <strong>Erro</strong> {{mensagemErro}}
@@ -49,7 +54,7 @@
 					<td>{{usuario.nome}}</td>
 					<td>{{usuario.email}}</td>
 					<td>
-						<button class="btn btn-default btn-mini" title="Alterar o usuário" ng-click="alterarUsuario(usuario)">
+						<button class="btn btn-default btn-mini" title="Alterar o usuário" ng-click="exibirFormulario(usuario)">
 							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 						</button>
 						<button class="btn btn-danger btn-mini" title="Excluir o usuário" ng-click="excluirUsuario(usuario)">
@@ -61,38 +66,37 @@
 		</div>
 	</div>
 	
-	<button class="btn btn-primary">Novo</button>
-
-	<div class="panel panel-primary">
-		<div class="panel-heading">Novo usuário</div>
-		<div class="panel-body">
-			<form class="form-horizontal">
-				<div class="form-group">
-					<label for="nome" class="col-sm-2 control-label">Nome</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="nome" ng-model="usuario.nome" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="email" class="col-sm-2 control-label">E-mail</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="email" ng-model="usuario.email" />
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="senha" class="col-sm-2 control-label">Senha</label>
-					<div class="col-sm-10">
-						<input type="password" class="form-control" id="senha" ng-model="usuario.senha" />
-					</div>
-				</div>
-				<div class="form-group">
-				  <div class="col-sm-offset-2 col-sm-10">
-				    <button type="button" class="btn btn-primary" ng-click="incluirUsuario(usuario)">Incluir</button>
-				  </div>
-				</div>
-			</form>
+	<button class="btn btn-primary" ng-click="exibirFormulario()">Novo Usuário</button>
+	
+	<hr/>
+	
+	<form class="form-horizontal" ng-if="exibeFormulario">
+		<div class="form-group">
+			<label for="nome" class="col-sm-2 control-label">Nome</label>
+			<div class="col-sm-10">
+				<input autocomplete="off" type="text" class="form-control" id="nome" ng-model="usuario.nome" />
+			</div>
 		</div>
-	</div>
+		<div class="form-group">
+			<label for="email" class="col-sm-2 control-label">E-mail</label>
+			<div class="col-sm-10">
+				<input autocomplete="off" type="text" class="form-control" id="email" ng-model="usuario.email" />
+			</div>
+		</div>
+		<div class="form-group" ng-if="!usuario.id">
+			<label for="senha" class="col-sm-2 control-label">Senha</label>
+			<div class="col-sm-10">
+				<input autocomplete="off" type="password" class="form-control" id="senha" ng-model="usuario.senha" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 ">
+				<button type="button" class="btn btn-primary" ng-click="salvarUsuario(usuario)">Salvar</button>
+				<button type="button" class="btn btn-default" ng-click="escondeFormulario()">Cancelar</button>
+			</div>
+		</div>
+	</form>
+
 
 	</div>
 

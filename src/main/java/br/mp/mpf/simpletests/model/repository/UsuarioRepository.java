@@ -28,4 +28,16 @@ public class UsuarioRepository extends BaseCRUDRepository<Usuario> {
 	return (Usuario) query.uniqueResult();
     }
 
+    @Override
+    public Usuario alterar(Usuario usuario) {
+	Query update = getSession().createQuery("update Usuario set nome = :nome, email = :email where id = :id");
+	update.setParameter("nome", usuario.getNome());
+	update.setParameter("email", usuario.getEmail());
+	update.setParameter("id", usuario.getId());
+
+	update.executeUpdate();
+
+	return usuario;
+    }
+
 }
