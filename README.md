@@ -1,9 +1,9 @@
 # simple-tests
 Aplicação de exemplo para o curso Spring MVC  + AngularJS ministrado no MPF.
 
-Aula 05:
+Aula 06:
 
 * Angular JS/Bootstrap
-  * Integrando com o backend
-  * Validações
-  * Filtros
+  * Refatorando: criando serviços AngularJS e reutilizando em controllers
+  * Diretiva ng-options
+  * SPA e ngRoute
