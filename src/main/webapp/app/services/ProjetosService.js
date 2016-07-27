@@ -1,19 +1,19 @@
-angular.module('simpleTests').factory('ProjetosService', function($http) {
+angular.module('simpleTests').factory('ProjetosService', function($http, SimpleTestConstants) {
 	return {
 		getProjetos : function() {
-			return $http.get('http://localhost:8080/simpletests/projetos');
+			return $http.get(SimpleTestConstants.url + '/projetos');
 		},
 		
 		incluir : function(projeto) {
-			return $http.put('http://localhost:8080/simpletests/projetos', projeto);
+			return $http.put(SimpleTestConstants.url + '/projetos', projeto);
 		},
 		
 		alterar : function(projeto) {
-			return $http.post('http://localhost:8080/simpletests/projetos', projeto);
+			return $http.post(SimpleTestConstants.url + '/projetos', projeto);
 		},
 		
 		excluir : function(projeto) {
-			return $http.delete('http://localhost:8080/simpletests/projetos/' + projeto.id);
+			return $http.delete(SimpleTestConstants.url + '/projetos/' + projeto.id);
 		}
 	
 	
