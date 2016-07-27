@@ -1,4 +1,4 @@
-angular.module('simpleTests').controller('ProjetosController', function ($scope, $http, ProjetosService){
+angular.module('simpleTests').controller('ProjetosController', function ($scope, ProjetosService){
 	
 	$scope.projeto = null;
 	$scope.projetos = [];
@@ -19,7 +19,7 @@ angular.module('simpleTests').controller('ProjetosController', function ($scope,
 	$scope.salvarProjeto = function(projeto) {
 		
 		if(projeto.id) {
-			$http.post('http://localhost:8080/simpletests/projetos', projeto).success(function(data) {
+			ProjetosService.alterar(projeto).success(function(data) {
 				if(data.sucesso) {
 					$scope.projeto = {};
 					$scope.mensagemSucesso = data.mensagem;
@@ -30,7 +30,7 @@ angular.module('simpleTests').controller('ProjetosController', function ($scope,
 				}
 			});
 		} else {
-			$http.put('http://localhost:8080/simpletests/projetos', projeto).success(function(data) {
+			ProjetosService.incluir(projeto).success(function(data) {
 				if(data.sucesso) {
 					$scope.projeto = {};
 					$scope.mensagemSucesso = data.mensagem;
@@ -46,7 +46,7 @@ angular.module('simpleTests').controller('ProjetosController', function ($scope,
 	};
 	
 	$scope.excluirProjeto = function(projeto) {
-		$http.delete('http://localhost:8080/simpletests/projetos/' + projeto.id).success(function(data) {
+		ProjetosService.excluir(projeto).success(function(data) {
 			if(data.sucesso) {
 				$scope.mensagemSucesso = data.mensagem;
 				carregarProjetos();
@@ -59,19 +59,13 @@ angular.module('simpleTests').controller('ProjetosController', function ($scope,
 		});
 	}
 	
-	var carregarPorId = function(id) {
-		$http.get('http://localhost:8080/simpletests/projetos/'+id).success(function(data) {
-			$scope.projeto = data.dados;
-		})
-	};
-	
 	var carregarProjetos = function() {
 		ProjetosService.getProjetos().success(function(data) {
 			$scope.projetos = data.dados;
 			// adicionando uma data de início do projeto
-			angular.forEach($scope.projetos, function(projeto) {
-				projeto.data = new Date();
-			});
+//			angular.forEach($scope.projetos, function(projeto) {
+//				projeto.data = new Date();
+//			});
 		})
 	};
 	

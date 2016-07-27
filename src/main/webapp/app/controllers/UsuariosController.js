@@ -1,4 +1,4 @@
-angular.module('simpleTests').controller('UsuariosController', function($scope, $http) {
+angular.module('simpleTests').controller('UsuariosController', function($scope, $http, UsuariosService) {
 	
 	$scope.usuarios = [];
 	$scope.mensagemSucesso = null;
@@ -18,7 +18,7 @@ angular.module('simpleTests').controller('UsuariosController', function($scope, 
 	$scope.salvarUsuario = function(usuario) {
 		
 		if(!usuario.id) {
-			$http.put('http://localhost:8080/simpletests/usuarios', usuario).success(function(data) {
+			UsuariosService.incluir(usuario).success(function(data) {
 				if(data.sucesso) {
 					$scope.usuario = {};
 					$scope.mensagemSucesso = data.mensagem;
@@ -29,7 +29,7 @@ angular.module('simpleTests').controller('UsuariosController', function($scope, 
 				}
 			});
 		} else {
-			$http.post('http://localhost:8080/simpletests/usuarios', usuario).success(function(data) {
+			UsuariosService.alterar(usuario).success(function(data) {
 				if(data.sucesso) {
 					$scope.usuario = {};
 					$scope.mensagemSucesso = data.mensagem;
@@ -44,7 +44,7 @@ angular.module('simpleTests').controller('UsuariosController', function($scope, 
 	};
 	
 	$scope.excluirUsuario = function(usuario) {
-		$http.delete('http://localhost:8080/simpletests/usuarios/' + usuario.id).success(function(data) {
+		UsuariosService.excluir(usuario).success(function(data) {
 			$scope.mensagemSucesso = data.mensagem;
 			carregarUsuarios();
 		}).error(function(data) {
@@ -54,7 +54,7 @@ angular.module('simpleTests').controller('UsuariosController', function($scope, 
 	}
 	
 	var carregarUsuarios = function() {
-		$http.get('http://localhost:8080/simpletests/usuarios').success(function(data) {
+		UsuariosService.getUsuarios().success(function(data) {
 			$scope.usuarios = data.dados;
 		});
 	};
