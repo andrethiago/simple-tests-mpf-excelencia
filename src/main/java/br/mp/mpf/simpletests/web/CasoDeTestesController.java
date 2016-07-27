@@ -13,15 +13,14 @@ import br.mp.mpf.simpletests.model.Projeto;
 import br.mp.mpf.simpletests.model.service.CasoDeTesteService;
 
 @Controller
-@RequestMapping("/projetos/{id}/casos")
 public class CasoDeTestesController {
 
     @Autowired
     private CasoDeTesteService casosTesteService;
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = "/projetos/{id}/casos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
-    public Resultado suitesPorProjeto(@PathVariable(value = "id") Long idProjeto) {
+    public Resultado casosPorProjeto(@PathVariable(value = "id") Long idProjeto) {
 	Projeto projeto = new Projeto();
 	projeto.setId(idProjeto);
 	return new Resultado(casosTesteService.consultarPorProjeto(projeto));
