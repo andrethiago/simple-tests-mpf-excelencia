@@ -1,1 +1,1 @@
-angular.module('simpleTests', []);
+angular.module('simpleTests', ['ngMessages']);

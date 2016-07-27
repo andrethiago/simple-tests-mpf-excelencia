@@ -46,4 +46,21 @@ public class ProjetosController {
 	return new Resultado(projeto, "Projeto incluído com sucesso!");
     }
 
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ResponseBody
+    public Resultado alterar(@RequestBody Projeto projeto) {
+	projetoService.alterar(projeto);
+	return new Resultado(projeto, "Projeto alterado com sucesso!");
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Resultado excluir(@PathVariable Long id) {
+	Projeto projeto = new Projeto();
+	projeto.setId(id);
+	projetoService.excluir(projeto);
+
+	return new Resultado("Projeto removido com sucesso.");
+    }
+
 }
