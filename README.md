@@ -5,4 +5,5 @@ Aula 05:
 
 * Angular JS/Bootstrap
   * Integrando com o backend
-  * Refatorando: criando services
+  * Validações
+  * Filtros
