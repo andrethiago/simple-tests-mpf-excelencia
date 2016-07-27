@@ -1,4 +1,4 @@
-angular.module('simpleTests').controller('ProjetosController', function ($scope, $http){
+angular.module('simpleTests').controller('ProjetosController', function ($scope, $http, ProjetosService){
 	
 	$scope.projeto = null;
 	$scope.projetos = [];
@@ -66,7 +66,7 @@ angular.module('simpleTests').controller('ProjetosController', function ($scope,
 	};
 	
 	var carregarProjetos = function() {
-		$http.get('http://localhost:8080/simpletests/projetos').success(function(data) {
+		ProjetosService.getProjetos().success(function(data) {
 			$scope.projetos = data.dados;
 			// adicionando uma data de início do projeto
 			angular.forEach($scope.projetos, function(projeto) {
