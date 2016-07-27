@@ -30,6 +30,7 @@ public class CasoDeTestesController {
     @ResponseBody
     public Resultado porId(@PathVariable Long id) {
 	return new Resultado(casosTesteService.consultarPorId(id));
+
     }
 
 }
