@@ -1,19 +1,20 @@
-angular.module('simpleTests').controller('CasosDeTesteController', function ($scope, CasosDeTesteService){
+angular.module('simpleTests').controller('CasosDeTesteController', function ($scope, CasosDeTesteService, ProjetosService){
 	
 	$scope.casoDeTeste = null;
 	$scope.casos = [];
+	$scope.projetos = []
 	$scope.mensagemSucesso = null;
 	$scope.mensagemAviso = null;
 	$scope.mensagemErro = null;
 	
 	
 	
-	$scope.salvarCasoDeTeste = function(caso) {
+	$scope.salvarCasoDeTeste = function(casoDeTeste) {
 		
-		CasosDeTesteService.incluir(caso).then(
+		CasosDeTesteService.incluir(casoDeTeste).then(
 			function success(response) {
 				if(response.data.sucesso) {
-					$scope.caso = {};
+					$scope.casoDeTeste = {};
 					$scope.mensagemSucesso = response.data.mensagem;
 					carregarCasosDeTeste();
 				} else {
@@ -27,11 +28,10 @@ angular.module('simpleTests').controller('CasosDeTesteController', function ($sc
 		
 	};
 	
-	$scope.excluirProjeto = function(caso) {
-		CasosDeTesteService.excluir(caso).then(
+	$scope.excluirProjeto = function(casoDeTeste) {
+		CasosDeTesteService.excluir(casoDeTeste).then(
 			function success(response) {
 				if(response.data.sucesso) {
-					$scope.caso = {};
 					$scope.mensagemSucesso = response.data.mensagem;
 					carregarCasosDeTeste();
 				} else {
@@ -52,7 +52,21 @@ angular.module('simpleTests').controller('CasosDeTesteController', function ($sc
 		)
 	};
 	
+	var carregarProjetos = function() {
+		ProjetosService.getProjetos().success(function(data) {
+			$scope.projetos = data.dados;
+		})
+	};
+	
+	var carregarTiposDeTeste = function() {
+		CasosDeTesteService.getTipos().success(function(data) {
+			$scope.tiposDeTeste = data.dados;
+		})
+	};
+	
 	carregarCasosDeTeste();
+	carregarTiposDeTeste();
+	carregarProjetos();
 	
 	
 });
