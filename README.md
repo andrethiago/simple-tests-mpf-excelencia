@@ -1,7 +1,8 @@
 # simple-tests
 Aplicação de exemplo para o curso Spring MVC  + AngularJS ministrado no MPF.
 
-Aula 07:
+Aula 08:
 
-* Angular JS/Bootstrap
-  * Criando interceptors.
+* Spring Security
+  * Criando a configuração do Spring Security.
+  * Criando uma página de login.
