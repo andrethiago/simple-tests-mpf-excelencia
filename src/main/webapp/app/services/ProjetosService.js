@@ -4,6 +4,10 @@ angular.module('simpleTests').factory('ProjetosService', function($http, SimpleT
 			return $http.get(SimpleTestConstants.url + '/projetos');
 		},
 		
+		getProjeto: function(id) {
+			return $http.get(SimpleTestConstants.url + '/projetos/' + id);
+		},
+		
 		incluir : function(projeto) {
 			return $http.put(SimpleTestConstants.url + '/projetos', projeto);
 		},

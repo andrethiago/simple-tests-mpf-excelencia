@@ -1,4 +1,4 @@
-angular.module('simpleTests').controller('ProjetosController', function ($scope, ProjetosService){
+angular.module('simpleTests').controller('ProjetosController', function ($scope, $location, ProjetosService){
 	
 	$scope.projeto = null;
 	$scope.projetos = [];
@@ -6,6 +6,7 @@ angular.module('simpleTests').controller('ProjetosController', function ($scope,
 	$scope.mensagemAviso = null;
 	$scope.mensagemErro = null;
 	$scope.exibeFormulario = false;
+	
 	
 	$scope.exibirFormulario = function(projeto) {
 		$scope.exibeFormulario = true;
@@ -34,8 +35,9 @@ angular.module('simpleTests').controller('ProjetosController', function ($scope,
 				if(data.sucesso) {
 					$scope.projeto = {};
 					$scope.mensagemSucesso = data.mensagem;
-					$scope.escondeFormulario();
-					carregarProjetos();
+					//$scope.escondeFormulario();
+					//carregarProjetos();
+					$location.path('#/projetos');
 				} else {
 					$scope.mensagemAviso = data.erro.mensagem;
 				}

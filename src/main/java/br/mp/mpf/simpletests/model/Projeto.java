@@ -1,10 +1,14 @@
 package br.mp.mpf.simpletests.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,6 +27,9 @@ public class Projeto {
 
     @Column(name = "DESCRICAO", nullable = true, length = 4000)
     private String descricao;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "projeto")
+    private List<Release> releases;
 
     public Projeto() {
     }
@@ -54,6 +61,14 @@ public class Projeto {
 
     public void setDescricao(String descricao) {
 	this.descricao = descricao;
+    }
+
+    public List<Release> getReleases() {
+	return releases;
+    }
+
+    public void setReleases(List<Release> releases) {
+	this.releases = releases;
     }
 
     @Override

@@ -1,8 +1,32 @@
-<div ng-if="projeto">
-<!-- 	<div ng-controller="ProjetosController"> -->
-		<dl class="dl-horizontal">
-			<dt>Nome:</dt> <dd>{{projeto.nome}}</dd>
-			<dt>Descrição:</dt> <dd>{{projeto.descricao}}</dd>
-		</dl>
-<!-- 	</div> -->
+<div class="container">
+	
+	<dl class="dl-horizontal">
+		<dt>Nome:</dt> <dd>{{projeto.nome}}</dd>
+		<dt>Descrição:</dt> <dd>{{projeto.descricao}}</dd>
+	</dl>
+	
+	
+	
+	<div class="panel panel-primary">
+		<div class="panel-heading">Releases existentes</div>
+		<div class="panel-body">
+			<table class="table table-hover">
+				<tr>
+					<th>#</th>
+					<th>Nome</th>
+					<th>Data Inicial</th>
+					<th>Data Final</th>
+					<th>Descrição</th>
+				</tr>
+				<tr ng-repeat="release in projeto.releases">
+					<td>{{$index + 1}}</td>
+					<td>{{release.nome}}</td>
+					<td>{{release.dataInicial | date : 'dd/MM/yyyy'}}</td>
+					<td>{{release.dataFinal | date : 'dd/MM/yyyy'}}</td>
+					<td>{{release.descricao}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
 </div>

@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "RELEASE")
 @SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_RELEASE", allocationSize = 1)
@@ -26,6 +28,7 @@ public class Release {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "ID_PROJETO", nullable = false)
+    @JsonIgnore
     private Projeto projeto;
 
     @Column(name = "NOME", nullable = false, length = 500)

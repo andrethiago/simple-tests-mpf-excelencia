@@ -1,4 +1,5 @@
-<div class="container" ng-controller="ProjetosController">
+<!-- <div class="container" ng-controller="ProjetosController"> -->
+<div class="container">
 
 	<h2>Projetos <small>Gerenciando os projetos existentes</small> </h2> 
 	
@@ -27,14 +28,12 @@
 					<th>#</th>
 					<th>Nome</th>
 					<th>Descrição</th>
-					<th>Data</th>
 					<th></th>
 				</tr>
 				<tr ng-repeat="projeto in projetos | filter : {nome : filtro} | orderBy: '+nome'">
 					<td>{{$index + 1}}</td>
-					<td><a href="/simpletests/app/projetos/{{projeto.id}}">{{projeto.nome | uppercase}}</a></td>
+					<td><a href="#/projetos/{{projeto.id}}">{{projeto.nome}}</a></td>
 					<td>{{projeto.descricao}}</td>
-					<td>{{projeto.data | date:'dd/MM/yyyy'}}</td>
 					<td>
 						<button class="btn btn-default btn-mini" title="Alterar o projeto" ng-click="exibirFormulario(projeto)">
 							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
@@ -48,58 +47,5 @@
 		</div>
 	</div>
 
-	<button class="btn btn-primary" ng-click="exibirFormulario()">Novo Projeto</button>
-	<form name="projetoForm" class="form-horizontal" ng-if="exibeFormulario">
-<!-- 	É valido:  {{projetoForm.$valid}} -->
-<!-- 	É inválido: {{projetoForm.$invalid}} -->
-		<div class="form-group">
-			<label for="nome" class="col-sm-2 control-label">Nome</label>
-			<div class="col-sm-10">
-				<input autocomplete="off" type="text" class="form-control" name="nome" ng-model="projeto.nome" ng-required="true" ng-minlength="10" />
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="descricao" class="col-sm-2 control-label">Descrição</label>
-			<div class="col-sm-10">
-				<textarea type="text" class="form-control" name="descricao" ng-model="projeto.descricao" ng-required="true">
-				</textarea>
-			</div>
-		</div>
-		<div class="form-group">
-		  <div class="col-sm-offset-2 col-sm-10">
-		  
-<!-- 		  	<div class="alert alert-danger" ng-show="projetoForm.nome.$invalid && projetoForm.nome.$dirty"> -->
-<!-- 				Por favor preencha o nome! -->
-<!-- 			</div> -->
-			
-<!-- 			<div class="alert alert-danger" ng-show="projetoForm.descricao.$invalid && projetoForm.descricao.$dirty"> -->
-<!-- 				Por favor preencha a descrição! -->
-<!-- 			</div> -->
-		  	
-		  	<div ng-messages="projetoForm.nome.$error" ng-show="projetoForm.nome.$invalid && projetoForm.nome.$dirty" class="alert alert-danger">
-				<div ng-message="required" >
-					Por favor preencha o nome!
-				</div>
-				
-				<div ng-message="minlength">
-					O tamanho mínimo do nome é 10 caracteres.
-				</div>
-		  	</div>
-		  	
-		  	<div ng-messages="projetoForm.descricao.$error" ng-show="projetoForm.descricao.$invalid && projetoForm.descricao.$dirty" class="alert alert-danger">
-				<div ng-message="required" >
-					Por favor preencha a descrição!
-				</div>
-				
-		  	</div>
-		  
-			
-		    <button type="button" class="btn btn-primary" ng-click="salvarProjeto(projeto)" ng-disabled="projetoForm.$invalid">Salvar</button>
-		    <button type="button" class="btn btn-default" ng-click="escondeFormulario()">Cancelar</button>
-		  </div>
-		</div>
-	</form>
-	
-
-
+	<a href="#/novo" class="btn btn-primary">Novo Projeto</a>
 </div>

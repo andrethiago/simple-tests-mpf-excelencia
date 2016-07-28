@@ -2,8 +2,19 @@
 angular.module('simpleTests').config(function($routeProvider) {
 	
 	$routeProvider.when("/projetos", {
-		templateUrl: "projetos.partial.html"
+		templateUrl: "projetos.partial.html",
+		controller: 'ProjetosController'
 	});
+	
+	$routeProvider.when("/projetos/:id", {
+		templateUrl: "detalharProjeto.html",
+		controller: 'DetalheProjetoController'
+	});
+	
+	$routeProvider.when("/novo", {
+		templateUrl: "novoProjeto.html",
+		controller: 'ProjetosController'
+	})
 	
 	$routeProvider.when("/usuarios", {
 		templateUrl: "usuarios.partial.html"
