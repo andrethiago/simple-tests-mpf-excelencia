@@ -24,6 +24,10 @@ angular.module('simpleTests').config(function($routeProvider) {
 		templateUrl: "casosDeTeste.partial.html"
 	});
 	
+	$routeProvider.when("/erro", {
+		templateUrl: "erro.html"
+	});
+	
 	$routeProvider.otherwise({
 		redirectTo: '/projetos'
 	});
