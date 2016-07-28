@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import br.mp.mpf.simpletests.infra.exception.EntidadeNaoEncontradaException;
+
 public class BaseCRUDRepository<E> {
 
     @Autowired
@@ -36,7 +38,11 @@ public class BaseCRUDRepository<E> {
 
     @SuppressWarnings("unchecked")
     public E consultarPorId(Long id) {
-	return (E) getSession().get(getClazz(), id);
+	E e = (E) getSession().get(getClazz(), id);
+	if (e != null) {
+	    return e;
+	}
+	throw new EntidadeNaoEncontradaException("Não existe objeto com esse id.");
     }
 
     @SuppressWarnings("unchecked")
