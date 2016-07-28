@@ -1,6 +1,7 @@
 package br.mp.mpf.simpletests.infra.exception;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -17,7 +18,8 @@ public class GlobalControllerExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Resultado defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
+    public Resultado defaultErrorHandler(HttpServletRequest req, HttpServletResponse response, Exception e)
+	    throws Exception {
 
 	e.printStackTrace();
 
@@ -32,6 +34,8 @@ public class GlobalControllerExceptionHandler {
 	ErrorInfo erro = new ErrorInfo(404, e.getMessage());
 	Resultado resultado = new Resultado();
 	resultado.addErro(erro);
+
+	response.setStatus(404);
 
 	return resultado;
     }
