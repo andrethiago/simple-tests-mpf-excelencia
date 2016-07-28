@@ -21,14 +21,21 @@ public class CasoDeTestesController {
     @Autowired
     private CasoDeTesteService casosTesteService;
 
+<<<<<<< HEAD
     @RequestMapping(value = "/casos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+=======
+    @RequestMapping(value = "/projetos/{id}/casos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+>>>>>>> branch 'simple-tests-05' of https://github.com/andrethiago/simple-tests.git
     @ResponseBody
+<<<<<<< HEAD
     public Resultado listarTodos() {
 	return new Resultado(casosTesteService.consultarTodos());
     }
 
     @RequestMapping(value = "/projetos/{id}/casos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
+=======
+>>>>>>> branch 'simple-tests-05' of https://github.com/andrethiago/simple-tests.git
     public Resultado casosPorProjeto(@PathVariable(value = "id") Long idProjeto) {
 	Projeto projeto = new Projeto();
 	projeto.setId(idProjeto);
