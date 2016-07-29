@@ -13,13 +13,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-	auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+	auth.inMemoryAuthentication().withUser("joao").password("123456").roles("USER");
+	auth.inMemoryAuthentication().withUser("maria").password("qwerty").roles("USER");
+	auth.inMemoryAuthentication().withUser("jose").password("abcdef").roles("USER");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-	super.configure(http);
-	http.logout();
+	http.csrf().disable();
+	http.authorizeRequests().antMatchers("/resources/**").permitAll();
+	http.authorizeRequests().anyRequest().authenticated();
+	http.formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/app/index.html");
+
+	http.logout().logoutSuccessUrl("/login");
     }
 
 }
