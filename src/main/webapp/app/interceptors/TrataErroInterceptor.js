@@ -18,7 +18,7 @@ angular.module('simpleTests').factory('TrataErroInterceptor', function($q, $loca
 		responseError: function (rejection) {
 			console.log('responseError');
 			//console.log(rejection);
-			if(rejection.status == 404) {
+			if(rejection.status == 404 || rejection.status == 403) {
 				$location.path('/erro');
 			}
 			return $q.reject(rejection);
