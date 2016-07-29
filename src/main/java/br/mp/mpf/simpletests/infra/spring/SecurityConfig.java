@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 	http.csrf().disable();
 	http.authorizeRequests().antMatchers("/resources/**").permitAll();
-	http.authorizeRequests().antMatchers("/**/usuarios/**").hasRole("ADMIN");
+	http.authorizeRequests().antMatchers("/**/usuarios**/**").hasRole("ADMIN");
 	http.authorizeRequests().anyRequest().authenticated();
 	http.formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/app/index.html");
 
