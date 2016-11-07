@@ -64,7 +64,7 @@ public class GenericEnumUserType implements UserType, ParameterizedType {
 	    }
 	} else {
 	    for (final Object possibleValue : this.enumClass.getEnumConstants()) {
-		final Enum ident = (Enum) possibleValue;
+		final Enum<?> ident = (Enum<?>) possibleValue;
 		if (ident.name().equals(value)) {
 		    return ident;
 		}
