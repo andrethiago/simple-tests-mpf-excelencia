@@ -1,23 +1,15 @@
 package br.mp.mpf.simpletests.infra.spring;
 
-import java.util.List;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
-import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module.Feature;
 
 @Configuration
 @ComponentScan(basePackages = "br.mp.mpf.simpletests.web")
@@ -47,20 +39,22 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     // para resolver o problema do lazy initialization da serialização JSON via
     // Jackson
-    @Bean
-    public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
-	ObjectMapper mapper = new ObjectMapper();
-	Hibernate4Module module = new Hibernate4Module();
-	module.enable(Feature.FORCE_LAZY_LOADING);
-	// module.enable(Feature.REQUIRE_EXPLICIT_LAZY_LOADING_MARKER);
-	mapper.registerModule(module);
-	MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter(mapper);
-	return converter;
-    }
-
-    @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-	converters.add(mappingJackson2HttpMessageConverter());
-    }
+    // @Bean
+    // public MappingJackson2HttpMessageConverter
+    // mappingJackson2HttpMessageConverter() {
+    // ObjectMapper mapper = new ObjectMapper();
+    // Hibernate4Module module = new Hibernate4Module();
+    // module.enable(Feature.FORCE_LAZY_LOADING);
+    // mapper.registerModule(module);
+    // MappingJackson2HttpMessageConverter converter = new
+    // MappingJackson2HttpMessageConverter(mapper);
+    // return converter;
+    // }
+    //
+    // @Override
+    // public void configureMessageConverters(List<HttpMessageConverter<?>>
+    // converters) {
+    // converters.add(mappingJackson2HttpMessageConverter());
+    // }
 
 }

@@ -10,14 +10,10 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.DynamicUpdate;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 @Entity
 @Table(name = "USUARIO")
 @SequenceGenerator(name = "sequenceGenerator", sequenceName = "SEQ_USUARIO", allocationSize = 1)
 @DynamicUpdate
-// @JsonIgnoreProperties(value = { "senha" })
 public class Usuario {
 
     @Id
@@ -32,7 +28,6 @@ public class Usuario {
     private String email;
 
     @Column(name = "SENHA", nullable = false, length = 500)
-    // @JsonIgnore
     private String senha;
 
     public Long getId() {
@@ -59,12 +54,10 @@ public class Usuario {
 	this.email = email;
     }
 
-    @JsonIgnore
     public String getSenha() {
 	return senha;
     }
 
-    @JsonProperty
     public void setSenha(String senha) {
 	this.senha = senha;
     }

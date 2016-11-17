@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import br.mp.mpf.simpletests.infra.exception.EntidadeNaoEncontradaException;
 import br.mp.mpf.simpletests.model.Usuario;
 import br.mp.mpf.simpletests.model.repository.UsuarioRepository;
 
@@ -40,10 +39,7 @@ public class UsuarioService {
 
     public Usuario consultarPorId(Long id) {
 	Usuario usuario = repository.consultarPorId(id);
-	if (usuario != null) {
-	    return usuario;
-	}
-	throw new EntidadeNaoEncontradaException("Usuário não encontrado");
+	return usuario;
     }
 
     public List<Usuario> consultarTodos() {
