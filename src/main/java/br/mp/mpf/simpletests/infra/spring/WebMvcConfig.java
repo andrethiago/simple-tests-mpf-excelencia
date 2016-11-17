@@ -13,6 +13,7 @@ import org.springframework.orm.hibernate4.support.OpenSessionInViewInterceptor;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -61,6 +62,11 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 	converters.add(mappingJackson2HttpMessageConverter());
+    }
+
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+	registry.jsp("/WEB-INF/content/", ".jsp");
     }
 
 }

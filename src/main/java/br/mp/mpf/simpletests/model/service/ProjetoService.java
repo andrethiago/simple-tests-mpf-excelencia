@@ -36,7 +36,11 @@ public class ProjetoService {
     }
 
     public Projeto consultarPorId(Long id) {
-	return repository.consultarPorId(id);
+	Projeto projeto = repository.consultarPorId(id);
+	if (projeto != null) {
+	    return projeto;
+	}
+	throw new IllegalArgumentException("Projeto inexistente!");
     }
 
     public List<Projeto> consultarTodos() {
